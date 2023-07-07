@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { Mesh } from "three";
 
-export const FloatingFruitWrapper: React.FC<{ children: React.ReactNode }> = ({
+export const FloatingMeshWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const ref = useRef<Mesh>(null);

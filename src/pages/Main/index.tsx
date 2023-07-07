@@ -20,29 +20,31 @@ import { WatermelonCut } from "../../components/WatermelonCut";
 import { Watermelon } from "../../components/Watermelon";
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
+import { useState } from "react";
 
-const FRUIT_SCALE = 0.001;
+const BACKGROUND_FRUIT_SCALE = 0.001;
 export const MainScreen = () => {
+  const [fruitScale, setFruitScale] = useState(BACKGROUND_FRUIT_SCALE);
   const fruits = [
-    <Apple scale={FRUIT_SCALE} />,
-    <Appercut scale={FRUIT_SCALE} />,
-    <Cherry scale={FRUIT_SCALE} />,
-    <Avocado scale={FRUIT_SCALE} rotation={[1, 4, 0]} />,
-    <Banana scale={FRUIT_SCALE} />,
-    <Chestnut scale={FRUIT_SCALE} />,
-    <LemonCut scale={FRUIT_SCALE} />,
-    <Lemon scale={FRUIT_SCALE} />,
-    <Lime scale={FRUIT_SCALE} rotation={[1, 4, 0]} />,
-    <MelonCut scale={FRUIT_SCALE} />,
-    <Melon scale={FRUIT_SCALE} />,
-    <Peach scale={FRUIT_SCALE} />,
-    <Pear scale={FRUIT_SCALE} />,
-    <Pineapple scale={FRUIT_SCALE} />,
-    <Pumpkin scale={FRUIT_SCALE} />,
-    <Plum scale={FRUIT_SCALE} />,
-    <Strawberry scale={FRUIT_SCALE} />,
-    <WatermelonCut scale={FRUIT_SCALE} rotation={[1, 4, 0]} />,
-    <Watermelon scale={FRUIT_SCALE} />,
+    <Apple scale={fruitScale} />,
+    <Appercut scale={fruitScale} />,
+    <Cherry scale={fruitScale} />,
+    <Avocado scale={fruitScale} rotation={[1, 4, 0]} />,
+    <Banana scale={fruitScale} />,
+    <Chestnut scale={fruitScale} />,
+    <LemonCut scale={fruitScale} />,
+    <Lemon scale={fruitScale} />,
+    <Lime scale={fruitScale} rotation={[1, 4, 0]} />,
+    <MelonCut scale={fruitScale} />,
+    <Melon scale={fruitScale} />,
+    <Peach scale={fruitScale} />,
+    <Pear scale={fruitScale} />,
+    <Pineapple scale={fruitScale} />,
+    <Pumpkin scale={fruitScale} />,
+    <Plum scale={fruitScale} />,
+    <Strawberry scale={fruitScale} />,
+    <WatermelonCut scale={fruitScale} rotation={[1, 4, 0]} />,
+    <Watermelon scale={fruitScale} />,
   ];
 
   return (
@@ -51,7 +53,7 @@ export const MainScreen = () => {
         height: "90vh",
       }}
     >
-      <Background fruits={fruits} />
+      <Background meshes={fruits} />
     </Canvas>
   );
 };
