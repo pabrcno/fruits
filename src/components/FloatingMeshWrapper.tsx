@@ -6,7 +6,7 @@ export const FloatingMeshWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const ref = useRef<Mesh>(null);
-  const offset = Math.random() * Math.PI * 2;
+  const offset = Math.random() * 100;
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime() + offset;
