@@ -2,9 +2,9 @@ import React, { ReactElement } from "react";
 import { useSpring, a } from "@react-spring/three";
 import { useGesture } from "@use-gesture/react";
 
-import { FloatingMeshWrapper } from "./FloatingMeshWrapper";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
+import { Float } from "@react-three/drei";
 
 type MeshProps = {
   scale: number;
@@ -36,9 +36,14 @@ export const Background = ({ meshes }: meshBackgroundProps) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
     <a.group {...bind()} rotation={rotXY.to((x, y) => [y * 0.1, x * 0.1, 0])}>
       {meshes.map((mesh, index) => (
-        <FloatingMeshWrapper key={index}>
+        <Float
+          speed={1} // Animation speed, defaults to 1
+          rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+          floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+          floatingRange={[-0.1, -0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+        >
           {React.cloneElement(mesh, { position: positions[index] })}
-        </FloatingMeshWrapper>
+        </Float>
       ))}
       <ambientLight />
     </a.group>

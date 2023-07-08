@@ -35,7 +35,7 @@ export const useMeshBackgroundPositioning = (
 
   return useMemo(() => {
     const positions: [number, number, number][] = [];
-    const possiblePositions: [number, number, number][] = Array(count * 2)
+    const possiblePositions: [number, number, number][] = Array(count * 10)
       .fill(0)
       .map(() => generateRandomPosition());
 
