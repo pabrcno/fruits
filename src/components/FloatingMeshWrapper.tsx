@@ -18,9 +18,5 @@ export const FloatingMeshWrapper: React.FC<{ children: React.ReactNode }> = ({
     );
     ref.current.position.y = (0.5 + Math.cos(t / 2)) / 7;
   });
-  return (
-    <mesh ref={ref} castShadow>
-      {children}
-    </mesh>
-  );
+  return <mesh ref={ref}>{children}</mesh>;
 };
