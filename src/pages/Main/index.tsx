@@ -20,7 +20,7 @@ import { WatermelonCut } from "../../components/WatermelonCut";
 import { Watermelon } from "../../components/Watermelon";
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const BACKGROUND_FRUIT_SCALE = 0.001;
 export const MainScreen = () => {
@@ -46,14 +46,7 @@ export const MainScreen = () => {
     <WatermelonCut scale={fruitScale} rotation={[1, 4, 0]} />,
     <Watermelon scale={fruitScale} />,
   ];
-  useEffect(() => {
-    // set fog
-    scene.fog = new THREE.Fog(0x000000, 10, 100); // adjust color and distance as per your needs
 
-    // set the far clipping plane
-    camera.far = 100; // adjust the distance as per your needs
-    camera.updateProjectionMatrix();
-  }, [scene, camera]);
   return (
     <Canvas
       style={{
