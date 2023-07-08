@@ -5,6 +5,7 @@ import { useGesture } from "@use-gesture/react";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
 import { Float } from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
 
 type MeshProps = {
   scale: number;
@@ -16,7 +17,9 @@ type meshBackgroundProps = {
 };
 
 export const Background = ({ meshes }: meshBackgroundProps) => {
-  const positions = useMeshBackgroundPositioning(meshes.length);
+  const positionedMeshes = useMeshBackgroundPositioning(meshes);
+
+  const { camera } = useThree();
 
   useZScrolling();
 
@@ -34,15 +37,16 @@ export const Background = ({ meshes }: meshBackgroundProps) => {
   return (
     // @ts-expect-error - the types are not defined correctly by the  library
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    <a.group {...bind()} rotation={rotXY.to((x, y) => [y * 0.1, x * 0.1, 0])}>
-      {meshes.map((mesh, index) => (
+    <a.group {...bind()} rotation={rotXY.to((x, y) => [y * 0.2, x * 0.1, 0])}>
+      {positionedMeshes.map((mesh, index) => (
         <Float
-          speed={1} // Animation speed, defaults to 1
+          speed={0.5} // Animation speed, defaults to 1
           rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
-          floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+          floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
           floatingRange={[-0.1, -0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+          key={index}
         >
-          {React.cloneElement(mesh, { position: positions[index] })}
+          {mesh}
         </Float>
       ))}
       <ambientLight />

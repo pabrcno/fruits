@@ -1,14 +1,14 @@
-import { useThree } from "@react-three/fiber";
-import { useMemo } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useMemo, useState } from "react";
 
 const MIN_DISTANCE = 2.5;
 
-export const useMeshBackgroundPositioning = (
-  count: number
-): [number, number, number][] => {
+export const useMeshBackgroundPositioning = (meshes: JSX.Element[]) => {
   const { viewport } = useThree();
   const MAX_RANGE = viewport.width;
   const MAX_RANGE_Y = viewport.height;
+  const [positions, setPositions] = useState<[number, number, number][]>([]);
+  const { camera } = useThree();
 
   function generateRandomPosition() {
     return [
@@ -33,23 +33,50 @@ export const useMeshBackgroundPositioning = (
     return false;
   }
 
-  return useMemo(() => {
-    const positions: [number, number, number][] = [];
-    const possiblePositions: [number, number, number][] = Array(count * 10)
+  const THRESHOLD = 13; // The distance from camera when objects start moving closer.
+  const BEHIND_CAMERA = -1; // The distance behind the camera to render the objects.
+
+  useFrame(() => {
+    const newPositions = positions.map(([x, y, z]) => {
+      if (camera.position.z < z) {
+        // The original case: if the camera is closer than the object on the z-axis, move the object away.
+        return [x, y, z - THRESHOLD];
+      } else if (z < camera.position.z - THRESHOLD) {
+        // The new case: if the object is further than the threshold from the camera, move it close behind the camera.
+        return [x, y, camera.position.z + BEHIND_CAMERA];
+      } else {
+        // Otherwise, leave the position as is.
+        return [x, y, z];
+      }
+    });
+
+    setPositions(newPositions as [number, number, number][]);
+  });
+  useMemo(() => {
+    const possiblePositions: [number, number, number][] = Array(
+      meshes.length * 10
+    )
       .fill(0)
       .map(() => generateRandomPosition());
 
     for (const pos of possiblePositions) {
-      if (positions.length >= count) {
+      if (positions.length >= meshes.length) {
         break;
       }
 
       if (!checkIntersect(positions, pos)) {
-        positions.push(pos);
+        setPositions((prev) => [...prev, pos]);
       }
     }
 
-    return positions;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [count, MAX_RANGE]);
+  }, [meshes.length, MAX_RANGE]);
+
+  return meshes.map((mesh, i) => ({
+    ...mesh,
+    props: {
+      ...mesh.props,
+      position: positions[i],
+    },
+  }));
 };
