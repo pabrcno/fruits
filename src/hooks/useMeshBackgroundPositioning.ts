@@ -38,12 +38,18 @@ export const useMeshBackgroundPositioning = (meshes: JSX.Element[]) => {
 
   useFrame(() => {
     const newPositions = positions.map(([x, y, z]) => {
+      const randomOffset = Math.random() - 0.5;
+
       if (camera.position.z < z) {
         // The original case: if the camera is closer than the object on the z-axis, move the object away.
-        return [x, y, z - THRESHOLD];
+        return [x + randomOffset, y + randomOffset, z - THRESHOLD];
       } else if (z < camera.position.z - THRESHOLD) {
         // The new case: if the object is further than the threshold from the camera, move it close behind the camera.
-        return [x, y, camera.position.z + BEHIND_CAMERA];
+        return [
+          x + randomOffset,
+          y + randomOffset,
+          camera.position.z + BEHIND_CAMERA,
+        ];
       } else {
         // Otherwise, leave the position as is.
         return [x, y, z];
