@@ -35,14 +35,20 @@ export const useMeshBackgroundPositioning = (
 
   return useMemo(() => {
     const positions: [number, number, number][] = [];
-    let newPos;
-    for (let i = 0; i < count; i++) {
-      do {
-        newPos = generateRandomPosition();
-      } while (checkIntersect(positions, newPos));
+    const possiblePositions: [number, number, number][] = Array(count * 2)
+      .fill(0)
+      .map(() => generateRandomPosition());
 
-      positions.push(newPos);
+    for (const pos of possiblePositions) {
+      if (positions.length >= count) {
+        break;
+      }
+
+      if (!checkIntersect(positions, pos)) {
+        positions.push(pos);
+      }
     }
+
     return positions;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count, MAX_RANGE]);

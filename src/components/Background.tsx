@@ -4,6 +4,7 @@ import { useGesture } from "@use-gesture/react";
 
 import { FloatingMeshWrapper } from "./FloatingMeshWrapper";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
+import { useZScrolling } from "../hooks/useZScrolling";
 
 type MeshProps = {
   scale: number;
@@ -16,6 +17,8 @@ type meshBackgroundProps = {
 
 export const Background = ({ meshes }: meshBackgroundProps) => {
   const positions = useMeshBackgroundPositioning(meshes.length);
+
+  useZScrolling();
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   const [{ rotXY }, set] = useSpring(() => ({ rotXY: [0, 0] })) as unknown as [
