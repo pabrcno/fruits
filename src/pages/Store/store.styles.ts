@@ -36,10 +36,10 @@ export const ProductNavigationRightContainer = styled.div`
 
 export const ProductAmountControlContainer = styled.div`
   position: absolute;
-  top: 20%;
+  top: 10%;
 
   border-radius: 10rem;
-  width: 90%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;

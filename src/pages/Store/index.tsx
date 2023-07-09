@@ -1,13 +1,13 @@
 import { Background } from "../../components/Background";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
 import * as fruits from "../../components/fruits";
-import { ReactElement, cloneElement, useState } from "react";
+import { cloneElement } from "react";
 
 import { ProductMeshAnimationWrapper } from "../../components/ProductMeshAnimationWrapper";
 import { Center } from "@react-three/drei";
-import { ScreenContainer } from "../general.styles";
+import { Nav, NavItem, ScreenContainer } from "../general.styles";
 import {
   ProductActionButton,
   ProductAmountControlContainer,
@@ -15,6 +15,7 @@ import {
   ProductNavigationLeftContainer,
   ProductNavigationRightContainer,
 } from "./store.styles";
+import { useStore } from "./hooks/useStore";
 
 export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
   const {
@@ -29,51 +30,19 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
     outerGradientColor: "#d8d",
   });
 
-  const [productIndex, setProductIndex] = useState(0);
-
   const products = Object.values(fruits).map((Mesh, index) => (
     <Mesh key={`${index}-product`} scale={productScale} />
   ));
 
-  const goToNextProduct = () => {
-    if (productIndex === products.length - 1) {
-      setProductIndex(0);
-      return;
-    }
-    setProductIndex((prev) => prev + 1);
-  };
+  const {
+    productIndex,
+    goToNextProduct,
+    goToPreviousProduct,
+    cart,
+    addProduct,
+    removeProduct,
+  } = useStore(products);
 
-  const goToPreviousProduct = () => {
-    if (productIndex === 0) {
-      setProductIndex(products.length - 1);
-      return;
-    }
-    setProductIndex((prev) => prev - 1);
-  };
-
-  const [cart, setCart] = useState<{ [key: number]: ReactElement[] }>(
-    products.reduce((acc, _, index) => ({ ...acc, [index]: [] }), {})
-  );
-
-  const addProduct = () => {
-    setCart((prev) => ({
-      ...prev,
-      [productIndex]: [...(prev[productIndex] || []), products[productIndex]],
-    }));
-  };
-
-  const removeProduct = () => {
-    setCart((prev) => {
-      const productMeshes = prev[productIndex];
-      if (!productMeshes || productMeshes.length === 0) {
-        return prev;
-      }
-      return {
-        ...prev,
-        [productIndex]: productMeshes.slice(0, productMeshes.length - 1),
-      };
-    });
-  };
   return (
     <ScreenContainer>
       <Canvas
@@ -100,7 +69,9 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
           </ProductMeshAnimationWrapper>
         )}
       </Canvas>
-
+      <Nav>
+        <NavItem onClick={goToMain}>{"< Back"}</NavItem>
+      </Nav>
       <ProductNavigationLeftContainer>
         <ProductActionButton onClick={goToPreviousProduct}>
           {"<"}
