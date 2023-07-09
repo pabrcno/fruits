@@ -15,6 +15,7 @@ export const MainTitle = styled.h1`
   text-align: center;
   margin: 0;
   padding: 0;
+  line-height: 1;
 
   letter-spacing: 0.5rem;
   opacity: 1;
