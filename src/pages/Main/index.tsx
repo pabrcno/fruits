@@ -77,11 +77,11 @@ export const MainScreen = () => {
       <Canvas
         style={{
           height: "100vh",
-          background: "#a8a",
+          background: "radial-gradient(circle, #a8a, #d8d)",
           zIndex: 0,
         }}
       >
-        <fog attach="fog" args={["#f59", 11, 12]} />
+        <fog attach="fog" args={["#a8a", 11, 12]} />
         <Background meshes={fruits} />
       </Canvas>
       <Nav>
