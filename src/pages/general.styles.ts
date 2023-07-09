@@ -65,3 +65,8 @@ export const ActionButton = styled.button`
     opacity: 1;
   }
 `;
+export const ActionButtonContainer = styled.div`
+  position: absolute;
+  bottom: 15%;
+  right: 1%;
+`;

@@ -7,7 +7,13 @@ import { cloneElement } from "react";
 
 import { ProductMeshAnimationWrapper } from "../../components/ProductMeshAnimationWrapper";
 import { Center } from "@react-three/drei";
-import { Nav, NavItem, ScreenContainer } from "../general.styles";
+import {
+  ActionButton,
+  ActionButtonContainer,
+  Nav,
+  NavItem,
+  ScreenContainer,
+} from "../general.styles";
 import {
   ProductActionButton,
   ProductAmountControlContainer,
@@ -89,6 +95,10 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
         <ProductAmountCounter>{cart[productIndex].length}</ProductAmountCounter>
         <ProductActionButton onClick={addProduct}>+</ProductActionButton>
       </ProductAmountControlContainer>
+
+      <ActionButtonContainer>
+        <ActionButton>Play!</ActionButton>
+      </ActionButtonContainer>
     </ScreenContainer>
   );
 };

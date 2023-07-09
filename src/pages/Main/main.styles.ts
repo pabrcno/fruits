@@ -23,9 +23,3 @@ export const TitleContainer = styled.div`
   justify-content: center;
   padding: 0 2rem;
 `;
-
-export const BuyButtonContainer = styled.div`
-  position: absolute;
-  bottom: 15%;
-  right: 1%;
-`;

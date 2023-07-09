@@ -2,9 +2,15 @@ import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
-import { BuyButtonContainer, MainTitle, TitleContainer } from "./main.styles";
+import { MainTitle, TitleContainer } from "./main.styles";
 import * as fruits from "../../components/fruits";
-import { ActionButton, Nav, NavItem, ScreenContainer } from "../general.styles";
+import {
+  ActionButton,
+  ActionButtonContainer,
+  Nav,
+  NavItem,
+  ScreenContainer,
+} from "../general.styles";
 
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const {
@@ -45,9 +51,9 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
       <TitleContainer>
         <MainTitle>Paulo's Fruit Store</MainTitle>
       </TitleContainer>
-      <BuyButtonContainer>
-        <ActionButton onClick={goToStore}>Buy</ActionButton>
-      </BuyButtonContainer>
+      <ActionButtonContainer>
+        <ActionButton onClick={goToStore}>Store</ActionButton>
+      </ActionButtonContainer>
     </ScreenContainer>
   );
 };
