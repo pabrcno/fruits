@@ -21,8 +21,17 @@ import { Watermelon } from "../../components/Watermelon";
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
+import {
+  ActionButton,
+  Center,
+  MainContainer,
+  MainTitle,
+  Nav,
+  NavItem,
+} from "./main.styles";
 
-const BACKGROUND_FRUIT_SCALE = 0.0005;
+const BACKGROUND_FRUIT_SCALE = 0.0008;
+
 export const MainScreen = () => {
   const [fruitScale, setFruitScale] = useState(BACKGROUND_FRUIT_SCALE);
   const fruits = [
@@ -67,13 +76,25 @@ export const MainScreen = () => {
   ];
 
   return (
-    <Canvas
-      style={{
-        height: "100vh",
-      }}
-    >
-      <fog attach="fog" args={["#ddd", 11, 12]} />
-      <Background meshes={fruits} />
-    </Canvas>
+    <MainContainer>
+      <Canvas
+        style={{
+          height: "100vh",
+          background: "#c8c",
+        }}
+      >
+        <fog attach="fog" args={["#f59", 11, 12]} />
+        <Background meshes={fruits} />
+      </Canvas>
+      <Nav>
+        <NavItem>About</NavItem>
+      </Nav>
+      <Center>
+        <MainTitle>Paulo's Fruits Store</MainTitle>
+        <ActionButton onClick={() => setFruitScale((prev) => prev * 2)}>
+          Buy
+        </ActionButton>
+      </Center>
+    </MainContainer>
   );
 };
