@@ -66,7 +66,6 @@ export const Nav = styled.nav`
   opacity: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 
   z-index: 1;
 `;

@@ -1,6 +1,7 @@
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
-import { useState } from "react";
+import { useControls } from "leva";
+
 import {
   ActionButton,
   Center,
@@ -11,22 +12,31 @@ import {
 } from "./main.styles";
 import * as fruits from "../../components/fruits";
 
-const BACKGROUND_FRUIT_SCALE = 0.0008;
-
 export const MainScreen = () => {
-  const [fruitScale, setFruitScale] = useState(BACKGROUND_FRUIT_SCALE);
-  const [fruitFactor, setFruitFactor] = useState(2);
+  const {
+    fruitScale,
+    fruitFactor,
+    innerGradientColor,
+    outerGradientColor,
+    fogColor,
+  } = useControls({
+    fruitScale: 0.0008,
+    fruitFactor: 2,
+    innerGradientColor: "#a8a",
+    outerGradientColor: "#d8d",
+    fogColor: "#a8a",
+  });
 
   return (
     <MainContainer>
       <Canvas
         style={{
           height: "100vh",
-          background: "radial-gradient(circle, #a8a, #d8d)",
+          background: `radial-gradient(circle, ${innerGradientColor}, ${outerGradientColor})`,
           zIndex: 0,
         }}
       >
-        <fog attach="fog" args={["#a8a", 11, 12]} />
+        <fog attach="fog" args={[fogColor, 11, 12]} />
         <Background
           meshes={Object.values(fruits).flatMap((Fruit, index) =>
             Array.from({ length: fruitFactor }, (_, factorIndex) => (
@@ -40,9 +50,7 @@ export const MainScreen = () => {
       </Nav>
       <Center>
         <MainTitle>Paulo's Fruit Store</MainTitle>
-        <ActionButton onClick={() => setFruitScale((prev) => prev * 2)}>
-          Buy
-        </ActionButton>
+        <ActionButton>Buy</ActionButton>
       </Center>
     </MainContainer>
   );
