@@ -89,6 +89,6 @@ export const NavItem = styled.div`
 
 export const BuyButtonContainer = styled.div`
   position: absolute;
-  bottom: 5%;
+  bottom: 15%;
   right: 1%;
 `;
