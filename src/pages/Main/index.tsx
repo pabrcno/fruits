@@ -80,7 +80,7 @@ export const MainScreen = () => {
       <Canvas
         style={{
           height: "100vh",
-          background: "#c8c",
+          background: "#a8a",
         }}
       >
         <fog attach="fog" args={["#f59", 11, 12]} />
@@ -90,7 +90,7 @@ export const MainScreen = () => {
         <NavItem>About</NavItem>
       </Nav>
       <Center>
-        <MainTitle>Paulo's Fruits Store</MainTitle>
+        <MainTitle>Paulo's Fruit Store</MainTitle>
         <ActionButton onClick={() => setFruitScale((prev) => prev * 2)}>
           Buy
         </ActionButton>
