@@ -55,24 +55,21 @@ export const MainScreen = () => {
     <WatermelonCut scale={fruitScale} rotation={[1, 4, 0]} />,
     <Watermelon scale={fruitScale} />,
     <Apple scale={fruitScale} />,
-    <Appercut scale={fruitScale} />,
+
     <Cherry scale={fruitScale} />,
     <Avocado scale={fruitScale} rotation={[1, 4, 0]} />,
     <Banana scale={fruitScale} />,
-    <Chestnut scale={fruitScale} />,
-    <LemonCut scale={fruitScale} />,
-    <Lemon scale={fruitScale} />,
+
     <Lime scale={fruitScale} rotation={[1, 4, 0]} />,
     <MelonCut scale={fruitScale} />,
-    <Melon scale={fruitScale} />,
+
     <Peach scale={fruitScale} />,
     <Pear scale={fruitScale} />,
     <Pineapple scale={fruitScale} />,
-    <Pumpkin scale={fruitScale} />,
+
     <Plum scale={fruitScale} />,
     <Strawberry scale={fruitScale} />,
     <WatermelonCut scale={fruitScale} rotation={[1, 4, 0]} />,
-    <Watermelon scale={fruitScale} />,
   ];
 
   return (
