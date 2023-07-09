@@ -95,10 +95,11 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
         <ProductAmountCounter>{cart[productIndex].length}</ProductAmountCounter>
         <ProductActionButton onClick={addProduct}>+</ProductActionButton>
       </ProductAmountControlContainer>
-
-      <ActionButtonContainer>
-        <ActionButton>Play!</ActionButton>
-      </ActionButtonContainer>
+      <a href="https://www.linkedin.com/in/paulo-briceno/">
+        <ActionButtonContainer>
+          <ActionButton>Hire!</ActionButton>
+        </ActionButtonContainer>
+      </a>
     </ScreenContainer>
   );
 };

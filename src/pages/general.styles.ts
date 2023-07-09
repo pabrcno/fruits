@@ -41,6 +41,7 @@ export const NavItem = styled.div`
     transform: scale(1.1);
     opacity: 1;
   }
+  display: flex;
 `;
 
 export const ActionButton = styled.button`

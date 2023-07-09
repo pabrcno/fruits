@@ -46,7 +46,14 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         />
       </Canvas>
       <Nav>
-        <NavItem>Repo</NavItem>
+        <NavItem>
+          Repo
+          <img
+            src="../../../assets/images/github-icon.png"
+            alt="gh-icon"
+            height={25}
+          ></img>
+        </NavItem>
       </Nav>
       <TitleContainer>
         <MainTitle>Paulo's Fruit Store</MainTitle>
