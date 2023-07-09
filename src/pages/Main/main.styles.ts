@@ -10,7 +10,7 @@ export const MainContainer = styled.div`
 
 export const MainTitle = styled.h1`
   font-family: "Lobster", cursive;
-  font-size: 6rem;
+  font-size: 5rem;
   color: #fff;
   text-align: center;
   margin: 0;

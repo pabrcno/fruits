@@ -78,6 +78,7 @@ export const MainScreen = () => {
         style={{
           height: "100vh",
           background: "#a8a",
+          zIndex: 0,
         }}
       >
         <fog attach="fog" args={["#f59", 11, 12]} />
