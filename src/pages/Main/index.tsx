@@ -22,7 +22,7 @@ import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useState } from "react";
 
-const BACKGROUND_FRUIT_SCALE = 0.001;
+const BACKGROUND_FRUIT_SCALE = 0.0005;
 export const MainScreen = () => {
   const [fruitScale, setFruitScale] = useState(BACKGROUND_FRUIT_SCALE);
   const fruits = [
@@ -69,10 +69,10 @@ export const MainScreen = () => {
   return (
     <Canvas
       style={{
-        height: "90vh",
-        background: "#fcc",
+        height: "100vh",
       }}
     >
+      <fog attach="fog" args={["#ddd", 11, 12]} />
       <Background meshes={fruits} />
     </Canvas>
   );
