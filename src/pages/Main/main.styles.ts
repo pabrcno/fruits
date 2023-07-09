@@ -60,7 +60,7 @@ export const Nav = styled.nav`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 5em;
+  height: 4em;
   background-color: #0001;
 
   opacity: 1;
