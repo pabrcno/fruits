@@ -86,3 +86,9 @@ export const NavItem = styled.div`
     opacity: 1;
   }
 `;
+
+export const BuyButtonContainer = styled.div`
+  position: absolute;
+  bottom: 50;
+  right: 20;
+`;

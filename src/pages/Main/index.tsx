@@ -4,6 +4,7 @@ import { useControls } from "leva";
 
 import {
   ActionButton,
+  BuyButtonContainer,
   Center,
   MainContainer,
   MainTitle,
@@ -46,12 +47,14 @@ export const MainScreen = () => {
         />
       </Canvas>
       <Nav>
-        <NavItem>About</NavItem>
+        <NavItem>Repo</NavItem>
       </Nav>
       <Center>
         <MainTitle>Paulo's Fruit Store</MainTitle>
-        <ActionButton>Buy</ActionButton>
       </Center>
+      <BuyButtonContainer>
+        <ActionButton>Buy</ActionButton>
+      </BuyButtonContainer>
     </MainContainer>
   );
 };
