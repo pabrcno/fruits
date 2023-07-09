@@ -2,7 +2,7 @@ import { a, useSpring } from "@react-spring/three";
 import { Float } from "@react-three/drei";
 import { ReactElement, useState } from "react";
 
-export const MeshAnimationWrapper = ({
+export const BackgroundMeshAnimationWrapper = ({
   children,
 }: {
   children: ReactElement;

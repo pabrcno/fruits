@@ -2,34 +2,27 @@ import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
-import {
-  ActionButton,
-  BuyButtonContainer,
-  Center,
-  MainContainer,
-  MainTitle,
-  Nav,
-  NavItem,
-} from "./main.styles";
+import { BuyButtonContainer, MainTitle, TitleContainer } from "./main.styles";
 import * as fruits from "../../components/fruits";
+import { ActionButton, Nav, NavItem, ScreenContainer } from "../general.styles";
 
-export const MainScreen = () => {
+export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const {
-    fruitScale,
-    fruitFactor,
+    bgMeshScale,
+    bgMeshFactor,
     innerGradientColor,
     outerGradientColor,
     fogColor,
   } = useControls({
-    fruitScale: 0.0008,
-    fruitFactor: 2,
+    bgMeshScale: 0.0008,
+    bgMeshFactor: 2,
     innerGradientColor: "#a8a",
     outerGradientColor: "#d8d",
     fogColor: "#a8a",
   });
 
   return (
-    <MainContainer>
+    <ScreenContainer>
       <Canvas
         style={{
           height: "100vh",
@@ -39,9 +32,9 @@ export const MainScreen = () => {
       >
         <fog attach="fog" args={[fogColor, 11, 12]} />
         <Background
-          meshes={Object.values(fruits).flatMap((Fruit, index) =>
-            Array.from({ length: fruitFactor }, (_, factorIndex) => (
-              <Fruit key={`${index}-${factorIndex}`} scale={fruitScale} />
+          meshes={Object.values(fruits).flatMap((Mesh, index) =>
+            Array.from({ length: bgMeshFactor }, (_, factorIndex) => (
+              <Mesh key={`${index}-${factorIndex}`} scale={bgMeshScale} />
             ))
           )}
         />
@@ -49,12 +42,12 @@ export const MainScreen = () => {
       <Nav>
         <NavItem>Repo</NavItem>
       </Nav>
-      <Center>
+      <TitleContainer>
         <MainTitle>Paulo's Fruit Store</MainTitle>
-      </Center>
+      </TitleContainer>
       <BuyButtonContainer>
-        <ActionButton>Buy</ActionButton>
+        <ActionButton onClick={goToStore}>Buy</ActionButton>
       </BuyButtonContainer>
-    </MainContainer>
+    </ScreenContainer>
   );
 };

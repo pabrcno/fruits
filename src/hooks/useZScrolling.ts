@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 
-export const useZScrolling = () => {
+export const useZScrolling = (deactivateScroll?: boolean) => {
   const { camera } = useThree();
   const velocity = useRef(0);
   const target = useRef(0);
@@ -9,6 +9,7 @@ export const useZScrolling = () => {
   const initialY = useRef(0);
 
   useEffect(() => {
+    if (deactivateScroll) return;
     const handleScroll = (e: WheelEvent) => {
       target.current += e.deltaY * 0.01;
     };
@@ -33,7 +34,7 @@ export const useZScrolling = () => {
       window.removeEventListener("touchstart", handleTouchStart);
       window.removeEventListener("touchmove", handleTouchMove);
     };
-  }, []);
+  }, [deactivateScroll]);
 
   useFrame(() => {
     velocity.current += (target.current - lastY.current) * 0.01;

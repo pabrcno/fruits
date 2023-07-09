@@ -5,7 +5,7 @@ import { useGesture } from "@use-gesture/react";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
 
-import { MeshAnimationWrapper } from "./MeshAnimationWrapper";
+import { BackgroundMeshAnimationWrapper } from "./BackgroundMeshAnimationWrapper";
 
 type MeshProps = {
   scale: number;
@@ -14,12 +14,16 @@ type MeshProps = {
 
 type meshBackgroundProps = {
   meshes: ReactElement<MeshProps>[];
+  deactivateScroll?: boolean;
 };
 
-export const Background = ({ meshes }: meshBackgroundProps) => {
+export const Background = ({
+  meshes,
+  deactivateScroll,
+}: meshBackgroundProps) => {
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
 
-  useZScrolling();
+  useZScrolling(deactivateScroll);
 
   // The types are not being returned correctly from useSpring
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -57,7 +61,9 @@ export const Background = ({ meshes }: meshBackgroundProps) => {
           rotation={rotXY.to((x: number, y: number) => [y * 0.05, x * 0.1, 0])}
           key={index}
         >
-          <MeshAnimationWrapper>{mesh}</MeshAnimationWrapper>
+          <BackgroundMeshAnimationWrapper>
+            {mesh}
+          </BackgroundMeshAnimationWrapper>
         </a.mesh>
       ))}
       <ambientLight />
