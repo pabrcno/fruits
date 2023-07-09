@@ -5,7 +5,8 @@ import { useGesture } from "@use-gesture/react";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
 import { Float } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useThree } from "@react-three/fiber";
+import THREE from "three";
 
 type MeshProps = {
   scale: number;
@@ -18,8 +19,6 @@ type meshBackgroundProps = {
 
 export const Background = ({ meshes }: meshBackgroundProps) => {
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
-
-  const { camera } = useThree();
 
   useZScrolling();
 
@@ -37,7 +36,8 @@ export const Background = ({ meshes }: meshBackgroundProps) => {
   return (
     // @ts-expect-error - the types are not defined correctly by the  library
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-    <a.group {...bind()} rotation={rotXY.to((x, y) => [y * 0.2, x * 0.1, 0])}>
+    <a.group {...bind()} rotation={rotXY.to((x, y) => [y * 0.05, x * 0.1, 0])}>
+      <fog args={["#262337", 1, 12]} />
       {positionedMeshes.map((mesh, index) => (
         <Float
           speed={0.5} // Animation speed, defaults to 1

@@ -1,5 +1,5 @@
 import { useFrame, useThree } from "@react-three/fiber";
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 
 const MIN_DISTANCE = 2.5;
 
@@ -78,11 +78,7 @@ export const useMeshBackgroundPositioning = (meshes: JSX.Element[]) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [meshes.length, MAX_RANGE]);
 
-  return meshes.map((mesh, i) => ({
-    ...mesh,
-    props: {
-      ...mesh.props,
-      position: positions[i],
-    },
-  }));
+  return meshes.map((mesh, i) =>
+    React.cloneElement(mesh, { position: positions[i] })
+  );
 };

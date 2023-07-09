@@ -70,6 +70,7 @@ export const MainScreen = () => {
     <Canvas
       style={{
         height: "90vh",
+        background: "#fcc",
       }}
     >
       <Background meshes={fruits} />
