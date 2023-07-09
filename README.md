@@ -1,10 +1,8 @@
 # Fruits!
 
-### A R3F project
-
 ## Brief
 
-This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3d assets but I decided to call it fruits because they are fun! Hope you like it, I had a ton of fun making it! Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private stuff 😎.
+This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3D assets but I decided to call it fruits because they are fun! Hope you like it, I had a ton of fun making it! Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private stuff 😎.
 
 ## Core Goals
 
