@@ -31,7 +31,7 @@ export const ActionButton = styled.button`
   min-width: 10rem;
   letter-spacing: 0.1rem;
   opacity: 0.8;
-  background-color: #606;
+  background-color: green;
   border: none;
   border-radius: 10rem;
   padding: 1rem 2rem;
@@ -89,6 +89,6 @@ export const NavItem = styled.div`
 
 export const BuyButtonContainer = styled.div`
   position: absolute;
-  bottom: 50;
-  right: 20;
+  bottom: 5%;
+  right: 1%;
 `;
