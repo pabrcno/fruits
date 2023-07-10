@@ -45,6 +45,7 @@ I added the following extras:
 2. Store Screen
 3. Infinite Background Scroll
 4. Full Responsiveness
+5. Fruits Meshes Optimization
 
 ## Architecture
 
