@@ -22,8 +22,7 @@ The project focuses on accomplishing the following requests:
    exactly. Instead, you could aim for something with a similar complexity and
    visual appeal.
    Link:
-   https://drive.google.com/file/d/17-m_WiYtYz1GQF5ntpEi4mGMeRcm6qMv/vie
-   w?usp=sharing
+   https://drive.google.com/file/d/17-m_WiYtYz1GQF5ntpEi4mGMeRcm6qMv/view?usp=sharing
 
 2. Implement animations triggered by scrolling. As the user scrolls down the
    webpage, certain elements on the page should animate or transition into view.
@@ -53,7 +52,7 @@ This is a basic UI app but if you explore the code you can see that the componen
 
 ## Tech Stack
 
-I decided not to use Next for this specific project as it was an overkill in my opinion, also most of the components are necessarily client side rendered and I think no one likes to over use "use client".
+I went for a lightweight react app. I decided not to use Next for this specific project as it was an overkill in my opinion, also most of the components are necessarily client side rendered and I think no one likes to over use "use client".
 
 - 3D meta-framework: react-three-fiber(https://github.com/pmndrs/react-three-fiber) + drei(https://github.com/pmndrs/drei)
 - Styling: styled-components(https://styled-components.com/)
