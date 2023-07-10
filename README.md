@@ -2,7 +2,7 @@
 
 ## Brief
 
-This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3D assets but I decided to call it fruits because the models are light and it wasy to create an aesthectic around them.
+This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3D assets but I decided to call it fruits because the models are light and it is easy to create an aesthectic around them.
 
 I Hope you like it, I had a ton of fun making it! 
 
