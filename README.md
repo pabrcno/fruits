@@ -50,6 +50,14 @@ I added the following extras:
 
 This is a basic UI app but if you explore the code you can see that the components are intentionally separated from all the business and complex reusable ui logic by the use of action hooks (Refer to useStore.ts, useMeshBackgroundPositioning, useZScrolling).
 
+#### State Management Note
+
+Basic local state management using useState.
+
+#### Navigation Note
+
+Basic navigation is provided by setting local states.
+
 ## Tech Stack
 
 I went for a lightweight react app. I decided not to use Next for this specific project as it was an overkill in my opinion, also most of the components are necessarily client side rendered and I think no one likes to over use "use client".
