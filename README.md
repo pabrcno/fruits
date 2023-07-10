@@ -44,6 +44,7 @@ I added the following extras:
 
 1. Basic Ux
 2. Store Screen
+3. Full Responsiveness
 
 ## Architecture
 
