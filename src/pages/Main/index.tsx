@@ -2,7 +2,7 @@ import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
-import { MainTitle, TitleContainer } from "./main.styles";
+import { MainTitle, TitleContainer, TitleNote } from "./main.styles";
 import * as fruits from "../../components/fruits";
 import {
   ActionButton,
@@ -11,6 +11,7 @@ import {
   NavItem,
   ScreenContainer,
 } from "../general.styles";
+import { useState } from "react";
 
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const {
@@ -26,6 +27,8 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
     outerGradientColor: "#d8d",
     fogColor: "#a8a",
   });
+
+  const [isTitleVisible, setIsTitleVisible] = useState(true);
 
   return (
     <ScreenContainer>
@@ -53,9 +56,12 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
           </NavItem>
         </a>
       </Nav>
-      <TitleContainer>
-        <MainTitle>Paulo's Fruit Store</MainTitle>
-      </TitleContainer>
+      {isTitleVisible && (
+        <TitleContainer onClick={() => setIsTitleVisible(false)}>
+          <MainTitle>Paulo's Fruit Store</MainTitle>
+          <TitleNote>(Tap to hide)</TitleNote>
+        </TitleContainer>
+      )}
       <ActionButtonContainer>
         <ActionButton onClick={goToStore}>Store</ActionButton>
       </ActionButtonContainer>

@@ -22,4 +22,11 @@ export const TitleContainer = styled.div`
   align-items: flex-end;
   justify-content: center;
   padding: 0 2rem;
+  cursor: pointer;
+`;
+
+export const TitleNote = styled.p`
+  font-family: "Lobster", cursive;
+
+  color: #fff;
 `;
