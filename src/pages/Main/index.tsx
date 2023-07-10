@@ -57,9 +57,9 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         </a>
       </Nav>
       {isTitleVisible && (
-        <TitleContainer onClick={() => setIsTitleVisible(false)}>
+        <TitleContainer onDoubleClick={() => setIsTitleVisible(false)}>
           <MainTitle>Paulo's Fruit Store</MainTitle>
-          <TitleNote>(Tap to hide)</TitleNote>
+          <TitleNote>(Double tap to hide)</TitleNote>
         </TitleContainer>
       )}
       <ActionButtonContainer>
