@@ -8,6 +8,8 @@ I Hope you like it, I had a ton of fun making it!
 
 Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private ones 😎.
 
+Develop Time: Aprox. 16hs
+
 ## Intent
 
 I wanted to show case the fact that as a professional my thinking process always goes towards the viability and monetization of the project, the cleanness of the code and the architecture of the app, my focus was to give a new user experience that uses 3D in order to make the buying process fun, the reusability of the components and the clearness of the structure.
