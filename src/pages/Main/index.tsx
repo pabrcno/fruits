@@ -3,7 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
 import { MainTitle, TitleContainer, TitleNote } from "./main.styles";
-import * as fruits from "../../components/fruits";
+
 import {
   ActionButton,
   ActionButtonContainer,
@@ -13,19 +13,14 @@ import {
 } from "../general.styles";
 import { useState } from "react";
 
+import { ETheme, useTheme } from "../../hooks/useTheme";
+
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
-  const {
-    bgMeshScale,
-    bgMeshFactor,
-    innerGradientColor,
-    outerGradientColor,
-    fogColor,
-  } = useControls({
-    bgMeshScale: 0.0008,
+  const { theme, setToolsTheme, setFruitsTheme } = useTheme();
+
+  const { bgMeshScale, bgMeshFactor } = useControls({
+    bgMeshScale: 0.1,
     bgMeshFactor: 2,
-    innerGradientColor: "#a8a",
-    outerGradientColor: "#d8d",
-    fogColor: "#a8a",
   });
 
   const [isTitleVisible, setIsTitleVisible] = useState(true);
@@ -35,13 +30,13 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
       <Canvas
         style={{
           height: "100vh",
-          background: `radial-gradient(circle, ${innerGradientColor}, ${outerGradientColor})`,
+          background: `radial-gradient(circle, ${theme.innerGradientColor}, ${theme.outerGradientColor})`,
           zIndex: 0,
         }}
       >
-        <fog attach="fog" args={[fogColor, 11, 12]} />
+        <fog attach="fog" args={[theme.shadowColor, 11, 12]} />
         <Background
-          meshes={Object.values(fruits).flatMap((Mesh, index) =>
+          meshes={theme.meshes.flatMap((Mesh, index) =>
             Array.from({ length: bgMeshFactor }, (_, factorIndex) => (
               <Mesh key={`${index}-${factorIndex}`} scale={bgMeshScale} />
             ))
@@ -55,10 +50,17 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
             <img src="/github-icon.png" alt="gh-icon" height={25}></img>
           </NavItem>
         </a>
+        <NavItem
+          onClick={() => {
+            theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
+          }}
+        >
+          {theme.name === ETheme.TOOLS ? "Tools" : "Fruits"}
+        </NavItem>
       </Nav>
       {isTitleVisible && (
         <TitleContainer onDoubleClick={() => setIsTitleVisible(false)}>
-          <MainTitle>Paulo's Fruit Store</MainTitle>
+          <MainTitle>{theme.title}</MainTitle>
           <TitleNote>(Double tap to hide)</TitleNote>
         </TitleContainer>
       )}

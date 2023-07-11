@@ -21,6 +21,7 @@ export function Pear(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["mesh_pear_01_-_Default001_0"].geometry}
         material={materials["01_-_Default.001"]}
+        scale={0.01}
       />
     </group>
   );

@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
     background-color: #fcc;
     overflow-x: hidden;
     overflow-y: hidden;
+    font-family: 'Lobster', cursive;
   }
 `;
 

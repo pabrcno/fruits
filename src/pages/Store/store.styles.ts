@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ProductActionButton = styled.button`
-  font-family: "Lobster", cursive;
   font-size: 6rem;
   color: #ffff;
   text-align: center;
@@ -47,7 +46,6 @@ export const ProductAmountControlContainer = styled.div`
 `;
 
 export const ProductAmountCounter = styled.h2`
-  font-family: "Lobster", cursive;
   font-size: 3rem;
   color: #fff;
   text-align: center;

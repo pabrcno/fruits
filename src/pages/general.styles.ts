@@ -27,7 +27,6 @@ export const Nav = styled.nav`
 `;
 
 export const NavItem = styled.div`
-  font-family: "Lobster", cursive;
   font-size: 2rem;
   color: #fff;
   text-align: center;

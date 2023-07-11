@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MainTitle = styled.h1`
-  font-family: "Lobster", cursive;
   font-size: 5rem;
   color: #fff;
   text-align: center;

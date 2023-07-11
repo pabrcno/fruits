@@ -17,6 +17,7 @@ export function MelonCut(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["mesh_melon_cut_2_01_-_Default001_0"].geometry}
         material={materials["01_-_Default.001"]}
+        scale={0.01}
       />
     </group>
   );

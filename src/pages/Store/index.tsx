@@ -2,7 +2,6 @@ import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
 
-import * as fruits from "../../components/fruits";
 import { cloneElement } from "react";
 
 import { ProductMeshAnimationWrapper } from "../../components/ProductMeshAnimationWrapper";
@@ -22,21 +21,15 @@ import {
   ProductNavigationRightContainer,
 } from "./store.styles";
 import { useStore } from "./hooks/useStore";
+import { ETheme, useTheme } from "../../hooks/useTheme";
 
 export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
-  const {
-    productScale,
-
-    innerGradientColor,
-    outerGradientColor,
-  } = useControls({
-    productScale: 0.00025,
-
-    innerGradientColor: "#a8a",
-    outerGradientColor: "#d8d",
+  const { theme, setToolsTheme, setFruitsTheme } = useTheme();
+  const { productScale } = useControls({
+    productScale: 0.025,
   });
 
-  const products = Object.values(fruits).map((Mesh, index) => (
+  const products = theme.meshes.map((Mesh, index) => (
     <Mesh key={`${index}-product`} scale={productScale} />
   ));
 
@@ -54,7 +47,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
       <Canvas
         style={{
           height: "100vh",
-          background: `radial-gradient(circle, ${innerGradientColor}, ${outerGradientColor})`,
+          background: `radial-gradient(circle, ${theme.innerGradientColor}, ${theme.outerGradientColor})`,
           zIndex: 0,
         }}
       >
@@ -77,6 +70,13 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
       </Canvas>
       <Nav>
         <NavItem onClick={goToMain}>{"< Back"}</NavItem>
+        <NavItem
+          onClick={() => {
+            theme.name === ETheme.FRUITS ? setToolsTheme() : setFruitsTheme();
+          }}
+        >
+          {theme.name === ETheme.FRUITS ? "Fruits" : "Tools"}
+        </NavItem>
       </Nav>
       <ProductNavigationLeftContainer>
         <ProductActionButton onClick={goToPreviousProduct}>
