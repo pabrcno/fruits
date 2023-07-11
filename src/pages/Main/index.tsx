@@ -44,12 +44,6 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         />
       </Canvas>
       <Nav>
-        <a href="https://github.com/pabrcno/fruits">
-          <NavItem>
-            Repo
-            <img src="/github-icon.png" alt="gh-icon" height={25}></img>
-          </NavItem>
-        </a>
         <NavItem
           onClick={() => {
             theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
@@ -57,6 +51,12 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         >
           {theme.name === ETheme.TOOLS ? "Tools" : "Fruits"}
         </NavItem>
+        <a href="https://github.com/pabrcno/fruits">
+          <NavItem>
+            Repo
+            <img src="/github-icon.png" alt="gh-icon" height={25}></img>
+          </NavItem>
+        </a>
       </Nav>
       {isTitleVisible && (
         <TitleContainer onDoubleClick={() => setIsTitleVisible(false)}>

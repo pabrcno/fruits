@@ -1,7 +1,7 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import React, { useMemo, useState } from "react";
 
-const MIN_DISTANCE = 2.5;
+const MIN_DISTANCE = 3;
 
 export const useMeshBackgroundPositioning = (meshes: JSX.Element[]) => {
   const { viewport } = useThree();
@@ -51,7 +51,7 @@ export const useMeshBackgroundPositioning = (meshes: JSX.Element[]) => {
   });
   useMemo(() => {
     const possiblePositions: [number, number, number][] = Array(
-      meshes.length * 10
+      meshes.length * 50
     )
       .fill(0)
       .map(() => generateRandomPosition());
