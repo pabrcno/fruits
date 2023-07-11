@@ -8,7 +8,7 @@ I Hope you like it, I had a ton of fun making it!
 
 Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private ones 😎.
 
-Develop Time: Aprox. 16hs
+Develop Time: 16hs Aprox
 
 ## Intent
 
