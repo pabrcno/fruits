@@ -2,9 +2,9 @@
 
 ## Brief
 
-This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3D assets but I decided to call it fruits because the models are light and it is easy to create an aesthectic around them.
+This is an app to showcase some of my abilities as a react dev, it contains general logic that can be used with any desired 3D assets but I decided to call it fruits because the models are light and it is easy to create an aesthetic around them, (Also added another theme to show the versatility of the component) .
 
-I Hope you like it, I had a ton of fun making it! 
+I Hope you like it, I had a ton of fun making it!
 
 Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private ones 😎.
 
@@ -39,9 +39,11 @@ The project focuses on accomplishing the following requests:
    webpage as necessary. Organize your code in a structured and maintainable
    manner.
 
-## Extras:
+## Intent
 
 I wanted to show case the fact that as a professional my thinking process always goes towards the viability and monetization of the project, the cleanness of the code and the architecture of the app, my focus was to give a new user experience that uses 3D in order to make the buying process fun, the reusability of the components and the clearness of the structure.
+
+## Extras
 
 I added the following extras:
 
@@ -50,6 +52,7 @@ I added the following extras:
 3. Infinite Background Scroll
 4. Full Responsiveness
 5. Fruits Meshes Optimization
+6. Multiple themes
 
 ## Architecture
 
