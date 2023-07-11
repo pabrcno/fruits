@@ -18,10 +18,11 @@ export const useStore = (products: JSX.Element[]) => {
     }
     setProductIndex((prev) => prev - 1);
   };
-
-  const [cart, setCart] = useState<{ [key: number]: ReactElement[] }>(
-    products.reduce((acc, _, index) => ({ ...acc, [index]: [] }), {})
+  const defaultCart: { [key: number]: ReactElement[] } = products.reduce(
+    (acc, _, index) => ({ ...acc, [index]: [] }),
+    {}
   );
+  const [cart, setCart] = useState(defaultCart);
 
   const addProduct = () => {
     setCart((prev) => ({
@@ -43,6 +44,10 @@ export const useStore = (products: JSX.Element[]) => {
     });
   };
 
+  const emptyCart = () => {
+    setCart(defaultCart);
+  };
+
   return {
     productIndex,
     goToNextProduct,
@@ -50,5 +55,6 @@ export const useStore = (products: JSX.Element[]) => {
     cart,
     addProduct,
     removeProduct,
+    emptyCart,
   };
 };

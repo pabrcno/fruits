@@ -38,7 +38,7 @@ export const ProductAmountControlContainer = styled.div`
   top: 10%;
 
   border-radius: 10rem;
-  width: 50%;
+  min-width: 50%;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -40,6 +40,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
     cart,
     addProduct,
     removeProduct,
+    emptyCart,
   } = useStore(products);
 
   return (
@@ -72,6 +73,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
         <NavItem onClick={goToMain}>{"< Back"}</NavItem>
         <NavItem
           onClick={() => {
+            emptyCart();
             theme.name === ETheme.FRUITS ? setToolsTheme() : setFruitsTheme();
           }}
         >
