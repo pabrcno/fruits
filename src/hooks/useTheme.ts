@@ -25,7 +25,7 @@ const DEFAULT_THEME: TTheme = {
   shadowColor: "#a8a",
 };
 
-//TODO: Add context
+//TODO: Add context in order to share over screens
 export const useTheme = () => {
   const [theme, setTheme] = useState<TTheme>(DEFAULT_THEME);
 
