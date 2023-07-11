@@ -14,16 +14,6 @@ Develop Time: 16hs Aprox
 
 I wanted to show case the fact that as a professional my thinking process always goes towards the viability and monetization of the project, the cleanness of the code and the architecture of the app, my focus was to give a new user experience that uses 3D in order to make the buying process fun, the reusability of the components and the clearness of the structure.
 
-## Extras
-
-I added the following extras:
-
-1. Basic Ux
-2. Store Screen
-3. Infinite Background Scroll
-4. Full Responsiveness
-5. Fruits Meshes Optimization
-6. Multiple themes
 
 ## Architecture
 
@@ -74,6 +64,17 @@ The project focuses on accomplishing the following requests:
 4. Use ReactJS to create modular components and manage the state of the
    webpage as necessary. Organize your code in a structured and maintainable
    manner.
+
+## Extras
+
+I added the following extras:
+
+1. Basic Ux
+2. Store Screen
+3. Infinite Background Scroll
+4. Full Responsiveness
+5. Fruits Meshes Optimization
+6. Multiple themes
 
 ## Contact
 
