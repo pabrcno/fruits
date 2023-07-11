@@ -8,37 +8,6 @@ I Hope you like it, I had a ton of fun making it!
 
 Please feel free to check my other public projects, and if you wanna see more complex stuff just let me know and we can review the good private ones 😎.
 
-## Core Goals
-
-The project focuses on accomplishing the following requests:
-
-1. A visually appealing background effect that responds to mouse movements.
-   As the user moves their mouse within the webpage, the background should
-   dynamically change or animate in response. You can choose to use CSS
-   animations, HTML5 Canvas, or any other suitable technology to achieve the
-   effect.
-   The background effect should be interactive and visually engaging, providing
-   a pleasant experience for the user. For example, the background could
-   consist of particles that follow the mouse cursor, change color, or create
-   visual trails as the user moves the mouse.
-   Here is a link to an example video demonstrating the kind of effects we are
-   looking for. This video is just a reference, but it is not required to replicate it
-   exactly. Instead, you could aim for something with a similar complexity and
-   visual appeal.
-   Link:
-   https://drive.google.com/file/d/17-m_WiYtYz1GQF5ntpEi4mGMeRcm6qMv/view?usp=sharing
-
-2. Implement animations triggered by scrolling. As the user scrolls down the
-   webpage, certain elements on the page should animate or transition into view.
-   You can choose to animate text, images, or any other elements you think are
-   appropriate for the webpage's content.
-3. Ensure smooth animations and transitions throughout the webpage. The
-   animations should be visually appealing and contribute to an overall polished
-   and professional user experience.
-4. Use ReactJS to create modular components and manage the state of the
-   webpage as necessary. Organize your code in a structured and maintainable
-   manner.
-
 ## Intent
 
 I wanted to show case the fact that as a professional my thinking process always goes towards the viability and monetization of the project, the cleanness of the code and the architecture of the app, my focus was to give a new user experience that uses 3D in order to make the buying process fun, the reusability of the components and the clearness of the structure.
@@ -72,6 +41,37 @@ I went for a lightweight react app. I decided not to use Next for this specific 
 
 - 3D meta-framework: react-three-fiber(https://github.com/pmndrs/react-three-fiber) + drei(https://github.com/pmndrs/drei)
 - Styling: styled-components(https://styled-components.com/)
+
+## Core Goals
+
+The project focuses on accomplishing the following requests:
+
+1. A visually appealing background effect that responds to mouse movements.
+   As the user moves their mouse within the webpage, the background should
+   dynamically change or animate in response. You can choose to use CSS
+   animations, HTML5 Canvas, or any other suitable technology to achieve the
+   effect.
+   The background effect should be interactive and visually engaging, providing
+   a pleasant experience for the user. For example, the background could
+   consist of particles that follow the mouse cursor, change color, or create
+   visual trails as the user moves the mouse.
+   Here is a link to an example video demonstrating the kind of effects we are
+   looking for. This video is just a reference, but it is not required to replicate it
+   exactly. Instead, you could aim for something with a similar complexity and
+   visual appeal.
+   Link:
+   https://drive.google.com/file/d/17-m_WiYtYz1GQF5ntpEi4mGMeRcm6qMv/view?usp=sharing
+
+2. Implement animations triggered by scrolling. As the user scrolls down the
+   webpage, certain elements on the page should animate or transition into view.
+   You can choose to animate text, images, or any other elements you think are
+   appropriate for the webpage's content.
+3. Ensure smooth animations and transitions throughout the webpage. The
+   animations should be visually appealing and contribute to an overall polished
+   and professional user experience.
+4. Use ReactJS to create modular components and manage the state of the
+   webpage as necessary. Organize your code in a structured and maintainable
+   manner.
 
 ## Contact
 
