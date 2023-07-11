@@ -11,6 +11,7 @@ type TTheme = {
   name: ETheme;
   innerGradientColor: string;
   outerGradientColor: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meshes: any[];
   title: string;
   shadowColor: string;
