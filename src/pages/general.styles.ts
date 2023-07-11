@@ -53,14 +53,14 @@ export const ActionButton = styled.button`
   min-width: 10rem;
   letter-spacing: 0.1rem;
   opacity: 0.8;
-  background-color: green;
+  background-color: #c0c;
   border: none;
   border-radius: 10rem;
   padding: 1rem 2rem;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background-color: #c0c;
+    background-color: #909;
     transform: scale(1.1);
     opacity: 1;
   }
