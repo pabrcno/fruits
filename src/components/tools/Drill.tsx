@@ -21,6 +21,7 @@ export function Drill(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["Box007_Material_#32_0"].geometry}
         material={materials.Material_32}
+        scale={0.75}
       />
     </group>
   );

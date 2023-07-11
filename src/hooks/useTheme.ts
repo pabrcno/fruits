@@ -36,7 +36,7 @@ export const useTheme = () => {
       innerGradientColor: "#191716",
       outerGradientColor: "#3D348B",
       meshes: Object.values(tools),
-      title: "Hardware Store",
+      title: "Paulo's Tools Store",
       shadowColor: "#202020",
     });
   };
@@ -47,7 +47,7 @@ export const useTheme = () => {
       innerGradientColor: "#d8d",
       outerGradientColor: "#a8a",
       meshes: Object.values(fruits),
-      title: "Fruit Store",
+      title: "Paulo's Fruit Store",
 
       shadowColor: "#a8a",
     });
