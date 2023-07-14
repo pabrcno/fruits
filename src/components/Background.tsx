@@ -1,12 +1,11 @@
-import { ReactElement } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { useSpring, a } from "@react-spring/three";
-import { useGesture } from "@use-gesture/react";
+import { useThree } from "@react-three/fiber";
 
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
 
-import { BackgroundMeshAnimationWrapper } from "./BackgroundMeshAnimationWrapper";
-import { useThree } from "@react-three/fiber";
+import { Float } from "@react-three/drei";
 
 type MeshProps = {
   scale: number;
@@ -28,47 +27,53 @@ export const Background = ({
 
   const { camera } = useThree();
 
-  // The types are not being returned correctly from useSpring
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-  const [{ rotXY }, set] = useSpring(() => ({ rotXY: [0, 0] })) as unknown as [
-    {
-      rotXY: {
-        // The types are not being returned correctly from useSpring so we have to use any here
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        to: any;
-      };
-    },
-    (props: { rotXY: [number, number] }) => void
-  ];
+  // Mouse state
+  const [mousePosition, setMousePosition] = useState([0, 0]);
 
-  const bind = useGesture({
-    onMove: ({ xy }) =>
-      set({ rotXY: [xy[0] / window.innerWidth, xy[1] / window.innerHeight] }),
+  // Spring for smooth animation
+  const { rotXY } = useSpring({
+    rotXY: mousePosition,
+    config: { mass: 1, tension: 280, friction: 120 }, // Customize the config as needed
   });
 
+  const cameraFactor = Math.abs(camera.position.z) + 1;
+
+  // Mousemove event listener to update mouse state
+  useEffect(() => {
+    const updateMousePosition = (event: MouseEvent) => {
+      setMousePosition([
+        event.clientX / window.innerWidth,
+        event.clientY / window.innerHeight,
+      ]);
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+
   return (
-    /* 
-    Ignoring TypeScript warnings here because the event handlers 
-    returned by `bind()` from @use-gesture/react are designed for 
-    native HTML elements, not for the 3D objects provided by 
-    @react-three/fiber. There's a mismatch between the two event 
-    systems, hence the TypeScript warning. But the event handlers 
-    work as expected in this context. And it is not a production app.
-  */
-    //@ts-expect-error above
     <a.group
-      {...bind()}
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-      rotation={rotXY.to((x: number, y: number) => [
-        -y / (Math.abs(camera.position.z) + 1),
-        x / (Math.abs(camera.position.z) + 1),
-        0,
-      ])}
+      rotation={
+        rotXY.to((x: number, y: number) => [
+          y / cameraFactor,
+          x / cameraFactor,
+          0,
+        ]) as unknown as [number, number, number]
+      }
     >
       {positionedMeshes.map((mesh, index) => (
-        <BackgroundMeshAnimationWrapper key={`${index}bg`}>
+        <Float
+          speed={0.5} // Animation speed, defaults to 1
+          rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
+          floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+          floatingRange={[-0.01 / cameraFactor, 0.01 / cameraFactor]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+          key={index}
+        >
           {mesh}
-        </BackgroundMeshAnimationWrapper>
+        </Float>
       ))}
       <ambientLight />
     </a.group>

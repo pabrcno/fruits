@@ -58,8 +58,6 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
             productMeshes.map((mesh, meshIndex) =>
               cloneElement(mesh, {
                 key: `${productIndex}-product${meshIndex}-background`,
-                scale: productScale * 0.5,
-                positionZ: -2,
               })
             )
           )}
