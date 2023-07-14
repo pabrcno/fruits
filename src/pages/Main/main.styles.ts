@@ -14,13 +14,12 @@ export const MainTitle = styled.h1`
 
 export const TitleContainer = styled.div`
   position: absolute;
-  top: 30%;
-  left: 0%;
+
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0;
   cursor: pointer;
 `;
 
