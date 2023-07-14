@@ -58,6 +58,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
               cloneElement(mesh, {
                 key: `${productIndex}-product${meshIndex}-background`,
                 scale: productScale * 0.5,
+                positionZ: -2,
               })
             )
           )}
@@ -73,11 +74,15 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
         <NavItem onClick={goToMain}>{"< Back"}</NavItem>
         <NavItem
           onClick={() => {
+            theme.name === ETheme.FRUITS || theme.name === ETheme.DEFAULT
+              ? setToolsTheme()
+              : setFruitsTheme();
             emptyCart();
-            theme.name === ETheme.FRUITS ? setToolsTheme() : setFruitsTheme();
           }}
         >
-          {theme.name === ETheme.FRUITS ? "Fruits" : "Tools"}
+          {theme.name === ETheme.FRUITS || theme.name === ETheme.DEFAULT
+            ? "Fruits"
+            : "Tools"}
         </NavItem>
       </Nav>
       <ProductNavigationLeftContainer>

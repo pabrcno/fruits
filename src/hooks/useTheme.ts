@@ -19,8 +19,8 @@ type TTheme = {
 
 const DEFAULT_THEME: TTheme = {
   name: ETheme.DEFAULT,
-  innerGradientColor: "#d8d",
-  outerGradientColor: "#a8a",
+  innerGradientColor: "#949",
+  outerGradientColor: "#d8d",
   meshes: Object.values(fruits),
   title: "Paulo's Fruit Store",
   shadowColor: "#a8a",
@@ -44,8 +44,8 @@ export const useTheme = () => {
   const setFruitsTheme = () => {
     setTheme({
       name: ETheme.FRUITS,
-      innerGradientColor: "#d8d",
-      outerGradientColor: "#a8a",
+      innerGradientColor: "#949",
+      outerGradientColor: "#d8d",
       meshes: Object.values(fruits),
       title: "Paulo's Fruit Store",
 
