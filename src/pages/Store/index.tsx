@@ -53,15 +53,17 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
           zIndex: 0,
         }}
       >
-        <Background
-          meshes={Object.values(cart).flatMap((productMeshes, productIndex) =>
-            productMeshes.map((mesh, meshIndex) =>
-              cloneElement(mesh, {
-                key: `${productIndex}-product${meshIndex}-background`,
-              })
-            )
-          )}
-        />
+        <group position={[0, -1, 0]}>
+          <Background
+            meshes={Object.values(cart).flatMap((productMeshes, productIndex) =>
+              productMeshes.map((mesh, meshIndex) =>
+                cloneElement(mesh, {
+                  key: `${productIndex}-product${meshIndex}-background`,
+                })
+              )
+            )}
+          />
+        </group>
 
         {!!products[productIndex] && (
           <ProductMeshAnimationWrapper>

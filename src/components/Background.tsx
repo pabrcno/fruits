@@ -1,4 +1,4 @@
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useState } from "react";
 import { useSpring, a } from "@react-spring/three";
 import { useThree } from "@react-three/fiber";
 
@@ -38,22 +38,6 @@ export const Background = ({
 
   const cameraFactor = Math.abs(camera.position.z) + 1;
 
-  // Mousemove event listener to update mouse state
-  useEffect(() => {
-    const updateMousePosition = (event: MouseEvent) => {
-      setMousePosition([
-        event.clientX / window.innerWidth,
-        event.clientY / window.innerHeight,
-      ]);
-    };
-
-    window.addEventListener("mousemove", updateMousePosition);
-
-    return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
-    };
-  }, []);
-
   return (
     <a.group
       rotation={
@@ -71,6 +55,12 @@ export const Background = ({
           floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
           floatingRange={[-0.01 / cameraFactor, 0.01 / cameraFactor]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
           key={index}
+          onPointerMove={({ clientX, clientY }) => {
+            setMousePosition([
+              (clientX / window.innerWidth) * 0.5,
+              -(clientY / window.innerHeight) * 0.25,
+            ]);
+          }}
         >
           {mesh}
         </Float>

@@ -14,7 +14,6 @@
     "@react-three/drei": "^9.78.1",
     "@react-three/fiber": "^8.13.4",
     "@types/three": "^0.153.0",
-    "@use-gesture/react": "^10.2.27",
     "leva": "^0.9.35",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
