@@ -6,6 +6,7 @@ import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPosition
 import { useZScrolling } from "../hooks/useZScrolling";
 
 import { BackgroundMeshAnimationWrapper } from "./BackgroundMeshAnimationWrapper";
+import { useThree } from "@react-three/fiber";
 
 type MeshProps = {
   scale: number;
@@ -24,6 +25,8 @@ export const Background = ({
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
 
   useZScrolling(deactivateScroll);
+
+  const { camera } = useThree();
 
   // The types are not being returned correctly from useSpring
   // eslint-disable-next-line @typescript-eslint/no-unsafe-call
@@ -44,9 +47,7 @@ export const Background = ({
   });
 
   return (
-    <group>
-      {positionedMeshes.map((mesh, index) => (
-        /* 
+    /* 
     Ignoring TypeScript warnings here because the event handlers 
     returned by `bind()` from @use-gesture/react are designed for 
     native HTML elements, not for the 3D objects provided by 
@@ -54,19 +55,22 @@ export const Background = ({
     systems, hence the TypeScript warning. But the event handlers 
     work as expected in this context. And it is not a production app.
   */
-        //@ts-expect-error above
-        <a.mesh
-          {...bind()}
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
-          rotation={rotXY.to((x: number, y: number) => [y * 0.05, x * 0.1, 0])}
-          key={index}
-        >
-          <BackgroundMeshAnimationWrapper>
-            {mesh}
-          </BackgroundMeshAnimationWrapper>
-        </a.mesh>
+    //@ts-expect-error above
+    <a.group
+      {...bind()}
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+      rotation={rotXY.to((x: number, y: number) => [
+        -y / (Math.abs(camera.position.z) + 1),
+        x / (Math.abs(camera.position.z) + 1),
+        0,
+      ])}
+    >
+      {positionedMeshes.map((mesh, index) => (
+        <BackgroundMeshAnimationWrapper key={`${index}bg`}>
+          {mesh}
+        </BackgroundMeshAnimationWrapper>
       ))}
       <ambientLight />
-    </group>
+    </a.group>
   );
 };
