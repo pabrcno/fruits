@@ -19,11 +19,11 @@ type TTheme = {
 
 const DEFAULT_THEME: TTheme = {
   name: ETheme.DEFAULT,
-  innerGradientColor: "#949",
-  outerGradientColor: "#d8d",
+  innerGradientColor: "#191716",
+  outerGradientColor: "#3D348B",
   meshes: Object.values(fruits),
   title: "Paulo's Fruit Store",
-  shadowColor: "#a8a",
+  shadowColor: "#202020",
 };
 
 //TODO: Add context in order to share over screens
@@ -44,12 +44,12 @@ export const useTheme = () => {
   const setFruitsTheme = () => {
     setTheme({
       name: ETheme.FRUITS,
-      innerGradientColor: "#949",
-      outerGradientColor: "#d8d",
+      innerGradientColor: "#191716",
+      outerGradientColor: "#3D348B",
       meshes: Object.values(fruits),
       title: "Paulo's Fruit Store",
 
-      shadowColor: "#a8a",
+      shadowColor: "#202020",
     });
   };
 

@@ -18,9 +18,18 @@ import { ETheme, useTheme } from "../../hooks/useTheme";
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const { theme, setToolsTheme, setFruitsTheme } = useTheme();
 
-  const { bgMeshScale, bgMeshFactor } = useControls({
+  const {
+    bgMeshScale,
+    bgMeshFactor,
+    innerGradientColor,
+    outerGradientColor,
+    shadowColor,
+  } = useControls({
     bgMeshScale: 0.1,
     bgMeshFactor: 2,
+    innerGradientColor: theme.innerGradientColor,
+    outerGradientColor: theme.outerGradientColor,
+    shadowColor: theme.shadowColor,
   });
 
   const [isTitleVisible, setIsTitleVisible] = useState(true);
@@ -30,11 +39,11 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
       <Canvas
         style={{
           height: "100vh",
-          background: `radial-gradient(circle, ${theme.innerGradientColor}, ${theme.outerGradientColor})`,
+          background: `radial-gradient(circle, ${innerGradientColor}, ${outerGradientColor})`,
           zIndex: 0,
         }}
       >
-        <fog attach="fog" args={[theme.shadowColor, 11, 12]} />
+        <fog attach="fog" args={[shadowColor, 11, 12]} />
         <Background
           meshes={theme.meshes.flatMap((Mesh, index) =>
             Array.from({ length: bgMeshFactor }, (_, factorIndex) => (

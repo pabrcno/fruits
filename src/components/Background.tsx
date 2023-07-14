@@ -6,6 +6,7 @@ import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPosition
 import { useZScrolling } from "../hooks/useZScrolling";
 
 import { Float } from "@react-three/drei";
+import { useControls } from "leva";
 
 type MeshProps = {
   scale: number;
@@ -22,7 +23,15 @@ export const Background = ({
   deactivateScroll,
 }: meshBackgroundProps) => {
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
-
+  const { speed, rotationIntensity, floatIntensity, mass, tension, friction } =
+    useControls({
+      speed: 0.5,
+      rotationIntensity: 0.5,
+      floatIntensity: 0.25,
+      mass: 1,
+      tension: 280,
+      friction: 120,
+    });
   useZScrolling(deactivateScroll);
 
   const { camera } = useThree();
@@ -33,10 +42,10 @@ export const Background = ({
   // Spring for smooth animation
   const { rotXY } = useSpring({
     rotXY: mousePosition,
-    config: { mass: 1, tension: 280, friction: 120 }, // Customize the config as needed
+    config: { mass, tension, friction }, // Customize the config as needed
   });
 
-  const cameraFactor = Math.abs(camera.position.z) + 1;
+  const cameraFactor = Math.abs(camera.position.z * 0.1) + 1;
 
   return (
     <a.group
@@ -50,9 +59,9 @@ export const Background = ({
     >
       {positionedMeshes.map((mesh, index) => (
         <Float
-          speed={0.5} // Animation speed, defaults to 1
-          rotationIntensity={0.5} // XYZ rotation intensity, defaults to 1
-          floatIntensity={0.2} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+          speed={speed}
+          rotationIntensity={rotationIntensity}
+          floatIntensity={floatIntensity}
           floatingRange={[-0.01 / cameraFactor, 0.01 / cameraFactor]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
           key={index}
           onPointerMove={({ clientX, clientY }) => {
