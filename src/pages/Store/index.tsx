@@ -15,8 +15,10 @@ import {
 } from "../../styles/general.styles";
 import {
   ProductActionButton,
+  ProductAmountContainer,
   ProductAmountControlContainer,
   ProductAmountCounter,
+  ProductAmountCounterTitle,
   ProductNavigationLeftContainer,
   ProductNavigationRightContainer,
 } from "./store.styles";
@@ -26,7 +28,7 @@ import { ETheme, useTheme } from "../../hooks/useTheme";
 export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
   const { theme, setToolsTheme, setFruitsTheme } = useTheme();
   const { productScale } = useControls({
-    productScale: 0.04,
+    productScale: 0.03,
   });
 
   const products = theme.meshes.map((Mesh, index) => (
@@ -82,11 +84,10 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
             emptyCart();
           }}
         >
-          {theme.name === ETheme.FRUITS || theme.name === ETheme.DEFAULT
-            ? "Fruits"
-            : "Tools"}
+          Change Theme
         </NavItem>
       </Nav>
+
       <ProductNavigationLeftContainer>
         <ProductActionButton onClick={goToPreviousProduct}>
           {"<"}
@@ -100,9 +101,16 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
       </ProductNavigationRightContainer>
 
       <ProductAmountControlContainer>
-        <ProductActionButton onClick={removeProduct}>-</ProductActionButton>
-        <ProductAmountCounter>{cart[productIndex].length}</ProductAmountCounter>
-        <ProductActionButton onClick={addProduct}>+</ProductActionButton>
+        <ProductAmountCounterTitle>
+          Add products to your background cart
+        </ProductAmountCounterTitle>
+        <ProductAmountContainer>
+          <ProductActionButton onClick={removeProduct}>-</ProductActionButton>
+          <ProductAmountCounter>
+            {cart[productIndex].length}
+          </ProductAmountCounter>
+          <ProductActionButton onClick={addProduct}>+</ProductActionButton>
+        </ProductAmountContainer>
       </ProductAmountControlContainer>
       <a href="https://www.linkedin.com/in/paulo-briceno/">
         <ActionButtonContainer>

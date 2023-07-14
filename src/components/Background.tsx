@@ -26,10 +26,10 @@ export const Background = ({
   const { speed, rotationIntensity, floatIntensity, mass, tension, friction } =
     useControls({
       speed: 0.5,
-      rotationIntensity: 0.5,
+      rotationIntensity: 2,
       floatIntensity: 0.25,
       mass: 1,
-      tension: 280,
+      tension: 300,
       friction: 240,
     });
   useZScrolling(deactivateScroll);
@@ -45,31 +45,31 @@ export const Background = ({
     config: { mass, tension, friction }, // Customize the config as needed
   });
 
-  const cameraFactor = Math.abs(camera.position.z * 0.1) + 1;
+  const cameraFactor = Math.abs(camera.position.z * 0.5) + 1;
 
   return (
     <a.group
       rotation={
         rotXY.to((x: number, y: number) => [
-          y / cameraFactor,
-          x / cameraFactor,
+          -x / cameraFactor,
+          -y / cameraFactor,
           0,
         ]) as unknown as [number, number, number]
       }
+      onPointerMove={({ clientX, clientY }) => {
+        setMousePosition([
+          (clientX / window.innerWidth) * 0.25,
+          (clientY / window.innerHeight) * 0.25,
+        ]);
+      }}
     >
       {positionedMeshes.map((mesh, index) => (
         <Float
           speed={speed}
-          rotationIntensity={rotationIntensity}
+          rotationIntensity={rotationIntensity / cameraFactor}
           floatIntensity={floatIntensity}
-          floatingRange={[-0.01 / cameraFactor, 0.01 / cameraFactor]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+          floatingRange={[-0.5, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
           key={index}
-          onPointerMove={({ clientX, clientY }) => {
-            setMousePosition([
-              (clientX / window.innerWidth) * 0.5,
-              -(clientY / window.innerHeight) * 0.25,
-            ]);
-          }}
         >
           {mesh}
         </Float>

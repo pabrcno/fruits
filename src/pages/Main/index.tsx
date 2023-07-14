@@ -53,13 +53,15 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         />
       </Canvas>
       <Nav>
-        <NavItem
-          onClick={() => {
-            theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
-          }}
-        >
-          {theme.name === ETheme.TOOLS ? "Tools" : "Fruits"}
-        </NavItem>
+        <div>
+          <NavItem
+            onClick={() => {
+              theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
+            }}
+          >
+            Change Theme
+          </NavItem>
+        </div>
         <a href="https://github.com/pabrcno/fruits">
           <NavItem>
             Repo

@@ -39,14 +39,29 @@ export const ProductAmountControlContainer = styled.div`
 
   border-radius: 10rem;
   min-width: 50%;
-  display: flex;
+
   align-items: center;
   justify-content: space-between;
   background-color: #0001;
 `;
 
+export const ProductAmountContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 export const ProductAmountCounter = styled.h2`
   font-size: 3rem;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.1rem;
+`;
+
+export const ProductAmountCounterTitle = styled.h2`
+  font-size: 2rem;
   color: #fff;
   text-align: center;
   margin: 0;
