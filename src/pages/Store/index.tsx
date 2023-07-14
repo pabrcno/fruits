@@ -41,6 +41,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
     addProduct,
     removeProduct,
     emptyCart,
+    setProductIndex,
   } = useStore(products);
 
   return (
@@ -77,6 +78,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
             theme.name === ETheme.FRUITS || theme.name === ETheme.DEFAULT
               ? setToolsTheme()
               : setFruitsTheme();
+            setProductIndex(0);
             emptyCart();
           }}
         >
