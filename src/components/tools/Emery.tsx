@@ -21,7 +21,7 @@ export function Emery(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["Box006_Material_#32_0"].geometry}
         material={materials.Material_32}
-        scale={0.5}
+        scale={0.4}
       />
     </group>
   );

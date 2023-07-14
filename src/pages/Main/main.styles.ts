@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainTitle = styled.h1`
-  font-size: 5rem;
+  font-size: 6rem;
   color: #fff;
   text-align: center;
   margin: 0;
@@ -15,12 +15,12 @@ export const MainTitle = styled.h1`
 export const TitleContainer = styled.div`
   position: absolute;
   top: 30%;
-  left: 5%;
+  left: 0%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 1rem;
   cursor: pointer;
 `;
 

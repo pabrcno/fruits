@@ -21,7 +21,8 @@ export function ToolBox(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["Box002_Material_#32_0"].geometry}
         material={materials.Material_32}
-        scale={0.5}
+        scale={0.25}
+        rotation={[-1, 0, 0]}
       />
     </group>
   );

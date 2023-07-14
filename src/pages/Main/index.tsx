@@ -10,7 +10,7 @@ import {
   Nav,
   NavItem,
   ScreenContainer,
-} from "../general.styles";
+} from "../../styles/general.styles";
 import { useState } from "react";
 
 import { ETheme, useTheme } from "../../hooks/useTheme";

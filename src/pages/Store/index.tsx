@@ -12,7 +12,7 @@ import {
   Nav,
   NavItem,
   ScreenContainer,
-} from "../general.styles";
+} from "../../styles/general.styles";
 import {
   ProductActionButton,
   ProductAmountControlContainer,
@@ -26,7 +26,7 @@ import { ETheme, useTheme } from "../../hooks/useTheme";
 export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
   const { theme, setToolsTheme, setFruitsTheme } = useTheme();
   const { productScale } = useControls({
-    productScale: 0.025,
+    productScale: 0.04,
   });
 
   const products = theme.meshes.map((Mesh, index) => (

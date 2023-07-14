@@ -21,7 +21,8 @@ export function Chainsaw(props: JSX.IntrinsicElements["group"]) {
       <mesh
         geometry={nodes["Box008_Material_#32_0"].geometry}
         material={materials.Material_32}
-        scale={0.5}
+        scale={0.25}
+        rotation={[1.5, -Math.PI / 4, 0]}
       />
     </group>
   );

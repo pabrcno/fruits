@@ -30,7 +30,7 @@ export const Background = ({
       floatIntensity: 0.25,
       mass: 1,
       tension: 280,
-      friction: 120,
+      friction: 240,
     });
   useZScrolling(deactivateScroll);
 
