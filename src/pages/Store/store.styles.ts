@@ -60,8 +60,8 @@ export const ProductAmountCounter = styled.h2`
   letter-spacing: 0.1rem;
 `;
 
-export const ProductAmountCounterTitle = styled.h2`
-  font-size: 2rem;
+export const ProductAmountCounterTitle = styled.h4`
+  font-size: 1rem;
   color: #fff;
   text-align: center;
   margin: 0;
