@@ -1,9 +1,11 @@
 import { useState } from "react";
 import * as fruits from "../components/fruits";
 import * as tools from "../components/tools";
+import { Fire } from "../components/Fire";
 export enum ETheme {
   TOOLS = "tools",
   FRUITS = "fruits",
+  FIRE = "fire",
   DEFAULT = "default",
 }
 
@@ -53,6 +55,17 @@ export const useTheme = () => {
     });
   };
 
+  const setFireTheme = () => {
+    setTheme({
+      name: ETheme.FIRE,
+      innerGradientColor: "#000",
+      outerGradientColor: "#000",
+      meshes: Array.from({ length: 1 }, () => Fire),
+      title: "Fire",
+
+      shadowColor: "#202020",
+    });
+  };
   const setDefaultTheme = () => {
     setTheme(DEFAULT_THEME);
   };
@@ -62,5 +75,6 @@ export const useTheme = () => {
     setToolsTheme,
     setFruitsTheme,
     setDefaultTheme,
+    setFireTheme,
   };
 };

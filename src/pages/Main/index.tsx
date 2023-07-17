@@ -11,12 +11,12 @@ import {
   NavItem,
   ScreenContainer,
 } from "../../styles/general.styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { ETheme, useTheme } from "../../hooks/useTheme";
 
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
-  const { theme, setToolsTheme, setFruitsTheme } = useTheme();
+  const { theme, setFireTheme, setFruitsTheme } = useTheme();
 
   const {
     bgMeshScale,
@@ -27,8 +27,8 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   } = useControls({
     bgMeshScale: 0.1,
     bgMeshFactor: 2,
-    innerGradientColor: theme.innerGradientColor,
-    outerGradientColor: theme.outerGradientColor,
+    innerGradientColor: "#000",
+    outerGradientColor: "#000",
     shadowColor: theme.shadowColor,
   });
 
@@ -42,6 +42,7 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
           background: `radial-gradient(circle, ${innerGradientColor}, ${outerGradientColor})`,
           zIndex: 0,
         }}
+        gl={{ alpha: true }}
       >
         <fog attach="fog" args={[shadowColor, 11, 12]} />
         <Background
@@ -56,7 +57,7 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         <div>
           <NavItem
             onClick={() => {
-              theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
+              theme.name === ETheme.TOOLS ? setFruitsTheme() : setFireTheme();
             }}
           >
             Change Theme

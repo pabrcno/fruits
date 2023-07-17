@@ -26,7 +26,7 @@ import { useStore } from "./hooks/useStore";
 import { ETheme, useTheme } from "../../hooks/useTheme";
 
 export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
-  const { theme, setToolsTheme, setFruitsTheme } = useTheme();
+  const { theme, setFireTheme, setFruitsTheme } = useTheme();
   const { productScale } = useControls({
     productScale: 0.03,
   });
@@ -78,7 +78,7 @@ export const StoreScreen = ({ goToMain }: { goToMain: () => void }) => {
         <NavItem
           onClick={() => {
             theme.name === ETheme.FRUITS || theme.name === ETheme.DEFAULT
-              ? setToolsTheme()
+              ? setFireTheme()
               : setFruitsTheme();
             setProductIndex(0);
             emptyCart();
