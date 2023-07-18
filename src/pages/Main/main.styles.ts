@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MainTitle = styled.h1`
-  font-size: 6rem;
+  font-size: 2rem;
   color: #fff;
   text-align: center;
   margin: 0;
