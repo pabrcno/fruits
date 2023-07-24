@@ -31,8 +31,8 @@ Basic navigation is provided by setting local states.
 
 I went for a lightweight react app. I decided not to use Next for this specific project as it was an overkill in my opinion, also most of the components are necessarily client side rendered and I think no one likes to over use "use client".
 
-- 3D meta-framework: react-three-fiber(https://github.com/pmndrs/react-three-fiber) + drei(https://github.com/pmndrs/drei)
-- Styling: styled-components(https://styled-components.com/)
+- 3D meta-framework: [react-three-fiber](https://github.com/pmndrs/react-three-fiber) + [drei](https://github.com/pmndrs/drei)
+- Styling: [styled-components](https://styled-components.com/)
 
 ## Core Goals
 
@@ -80,4 +80,4 @@ I added the following extras:
 
 Please feel free to reach out!
 
-- Linkedn(https://www.linkedin.com/in/paulo-briceno/)
+- [Linkedn](https://www.linkedin.com/in/paulo-briceno/)
