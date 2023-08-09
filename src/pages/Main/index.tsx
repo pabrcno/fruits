@@ -25,8 +25,8 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
     outerGradientColor,
     shadowColor,
   } = useControls({
-    bgMeshScale: 0.1,
-    bgMeshFactor: 2,
+    bgMeshScale: 0.02,
+    bgMeshFactor: 20,
     innerGradientColor: theme.innerGradientColor,
     outerGradientColor: theme.outerGradientColor,
     shadowColor: theme.shadowColor,
