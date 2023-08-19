@@ -33,7 +33,7 @@ export const Background = ({
       tension: 300,
       friction: 240,
     });
-  useAutoZScrolling();
+  const { speed: scrollSpeed } = useAutoZScrolling();
 
   const { camera } = useThree();
 
@@ -57,9 +57,9 @@ export const Background = ({
         position={[0, 0, camera.position.z - 10]}
         size={2}
         count={200}
-        speed={0.5}
+        speed={scrollSpeed * 10}
         noise={1}
-        scale={10}
+        scale={20}
       />
     </group>
   );
