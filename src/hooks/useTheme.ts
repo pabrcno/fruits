@@ -55,7 +55,6 @@ export const useTheme = () => {
 
   return {
     theme,
-
     setDefaultTheme,
   };
 };
