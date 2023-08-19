@@ -1,26 +1,16 @@
 import { useFrame, useThree } from "@react-three/fiber";
-import { useState, useRef, useEffect, Ref } from "react";
-import { GLTF } from "three-stdlib";
-import { Box, useGLTF } from "@react-three/drei";
-import * as THREE from "three";
-import { Lego1x1 } from "./legos";
-import { useBox } from "@react-three/cannon";
+import { useState, useRef, useEffect, Ref, useMemo } from "react";
 
-type GLTFResult = GLTF & {
-  nodes: {
-    Spaceship_0: THREE.Mesh;
-  };
-  materials: {
-    Spaceship_Material: THREE.MeshBasicMaterial;
-  };
-};
+import { Box } from "@react-three/drei";
+import * as THREE from "three";
+import { SpaceshipMesh } from "./SpaceShipMesh";
 
 export function SpaceShip(): JSX.Element {
   const [lasers, setLasers] = useState<THREE.Vector3[]>([]);
   const mainBoxRef = useRef<THREE.Mesh>(null);
   const { camera } = useThree();
-  const { nodes, materials } = useGLTF("/meshes/spaceship.glb") as GLTFResult;
-
+  const shotSound = useMemo(() => new Audio("/sound/laser-shot.wav"), []);
+  const legoSound = useMemo(() => new Audio("/sound/lego-click.wav"), []);
   const handleShoot = () => {
     if (!mainBoxRef.current) return;
     const position = new THREE.Vector3(
@@ -29,6 +19,9 @@ export function SpaceShip(): JSX.Element {
       mainBoxRef.current.position.z - 0.11
     );
     setLasers((prevLasers) => [...prevLasers, position]);
+    shotSound.volume = 0.05;
+    legoSound.play().catch((err) => console.error(err));
+    shotSound.play().catch((err) => console.error(err));
   };
 
   useFrame(({ mouse, viewport: { width, height } }) => {
@@ -36,7 +29,7 @@ export function SpaceShip(): JSX.Element {
 
     mainBoxRef.current.position.set(
       mouse.x * width * 0.1,
-      mouse.y * height * 0.1,
+      mouse.y * height * 0.1 - 0.1,
       camera.position.z - 1
     );
 
@@ -73,14 +66,7 @@ export function SpaceShip(): JSX.Element {
 
   return (
     <>
-      <mesh
-        ref={mainBoxRef}
-        geometry={nodes.Spaceship_0.geometry}
-        material={materials.Spaceship_Material}
-        rotation={[0, 0, 0]}
-        scale={0.01}
-        onClick={handleShoot}
-      />
+      <SpaceshipMesh onClick={handleShoot} ref={mainBoxRef} />
       {lasers.map((laserPosition, idx) => (
         <Box
           scale={[0.01, 0.01, 0.1]}

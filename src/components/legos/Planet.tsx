@@ -26,12 +26,7 @@ export function Planet(
   return (
     <group {...props} dispose={null}>
       <AnimatedLegoWrapper>
-        <mesh
-          castShadow
-          receiveShadow
-          geometry={nodes.planet_lego.geometry}
-          position={[-13.927, 0.498, 0.288]}
-        >
+        <mesh castShadow receiveShadow geometry={nodes.planet_lego.geometry}>
           <meshStandardMaterial map={texture} />
         </mesh>
       </AnimatedLegoWrapper>

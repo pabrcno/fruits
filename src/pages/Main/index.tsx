@@ -21,20 +21,19 @@ import { Alien } from "../../components/legos/Alien";
 
 export const MainScreen = () => {
   const { theme } = useTheme();
-
   const {
     bgMeshScale,
     bgMeshFactor,
     innerGradientColor,
     outerGradientColor,
     shadowColor,
-  } = useControls({
+  } = {
     bgMeshScale: 0.1,
     bgMeshFactor: 20,
     innerGradientColor: theme.innerGradientColor,
     outerGradientColor: theme.outerGradientColor,
     shadowColor: theme.shadowColor,
-  });
+  };
 
   const colors = [
     "#B40000",
