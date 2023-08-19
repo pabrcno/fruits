@@ -31,7 +31,7 @@ export function Lego1x1({ color, scale, ...props }: LegoProps) {
         geometry={nodes.lego_1x1.geometry}
         material={clonedMaterial}
         position={props.position}
-        scale={0.03}
+        scale={scale}
       />
     </AnimatedLegoWrapper>
   );

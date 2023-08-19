@@ -29,7 +29,7 @@ export function Lego4x2({ color, scale, ...props }: LegoProps) {
   return (
     <AnimatedLegoWrapper>
       <mesh
-        scale={0.03}
+        scale={scale}
         castShadow
         geometry={nodes.lego_4x2.geometry}
         material={clonedMaterial}
