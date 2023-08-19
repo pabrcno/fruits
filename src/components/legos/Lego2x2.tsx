@@ -32,7 +32,7 @@ export function Lego2x2({ color, scale, ...props }: LegoProps) {
         castShadow
         geometry={nodes.lego_2x2.geometry}
         material={clonedMaterial}
-        scale={0.025}
+        scale={0.03}
         position={props.position}
       />
     </AnimatedLegoWrapper>

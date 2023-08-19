@@ -16,6 +16,8 @@ import { useState } from "react";
 
 import { ETheme, useTheme } from "../../hooks/useTheme";
 import { SpaceShip } from "../../components/SpaceShip";
+import { Debug, Physics } from "@react-three/cannon";
+import { Alien } from "../../components/legos/Alien";
 
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const { theme, setToolsTheme, setFruitsTheme } = useTheme();
@@ -68,6 +70,7 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
         <Stats />
         <fog attach="fog" args={[shadowColor, 11, 12]} />
         <directionalLight intensity={1} />
+
         <SpaceShip />
 
         <Background
