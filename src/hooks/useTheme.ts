@@ -1,6 +1,5 @@
 import { useState } from "react";
-import * as fruits from "../components/fruits";
-import * as tools from "../components/tools";
+
 import * as legos from "../components/legos";
 
 export enum ETheme {
@@ -32,9 +31,17 @@ const DEFAULT_THEME: TTheme = {
 
 //TODO: Add context in order to share over screens
 export const useTheme = () => {
-  const [theme, setTheme] = useState<TTheme>(DEFAULT_THEME);
+  const [theme, setTheme] = useState<TTheme>({
+    name: ETheme.LEGOS,
+    innerGradientColor: "#191716",
+    outerGradientColor: "#000",
+    // values of legos but twice to have more legos
+    meshes: Object.values(legos),
+    title: "",
+    shadowColor: "#202020",
+  });
 
-  const setToolsTheme = () => {
+  const setDefaultTheme = () => {
     setTheme({
       name: ETheme.LEGOS,
       innerGradientColor: "#191716",
@@ -46,26 +53,9 @@ export const useTheme = () => {
     });
   };
 
-  const setFruitsTheme = () => {
-    setTheme({
-      name: ETheme.FRUITS,
-      innerGradientColor: "#191716",
-      outerGradientColor: "#3D348B",
-      meshes: Object.values(fruits),
-      title: "Paulo's Fruit Store",
-
-      shadowColor: "#202020",
-    });
-  };
-
-  const setDefaultTheme = () => {
-    setTheme(DEFAULT_THEME);
-  };
-
   return {
     theme,
-    setToolsTheme,
-    setFruitsTheme,
+
     setDefaultTheme,
   };
 };
