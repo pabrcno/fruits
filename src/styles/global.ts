@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 300;
     font-style: normal;
     font-display: auto; 
+    
   }
 
   body {
@@ -17,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Lobster', cursive;
+    cursor:none
   }
 `;
 

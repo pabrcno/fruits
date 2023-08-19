@@ -5,8 +5,9 @@ import { useThree } from "@react-three/fiber";
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
 import { useZScrolling } from "../hooks/useZScrolling";
 
-import { Float } from "@react-three/drei";
+import { Float, Sparkles } from "@react-three/drei";
 import { useControls } from "leva";
+import { useAutoZScrolling } from "../hooks/useAutoZScroll";
 
 type MeshProps = {
   scale: number;
@@ -32,7 +33,7 @@ export const Background = ({
       tension: 300,
       friction: 240,
     });
-  useZScrolling(deactivateScroll);
+  useAutoZScrolling();
 
   const { camera } = useThree();
 
@@ -45,7 +46,7 @@ export const Background = ({
     config: { mass, tension, friction }, // Customize the config as needed
   });
 
-  const cameraFactor = Math.abs(camera.position.z * 0.5) + 1;
+  const cameraFactor = Math.abs(camera.position.z * 0.5) + 2;
 
   return (
     <a.group
@@ -68,13 +69,21 @@ export const Background = ({
           speed={speed}
           rotationIntensity={rotationIntensity / cameraFactor}
           floatIntensity={floatIntensity}
-          floatingRange={[-0.5, 0.5]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+          floatingRange={[-2, 2]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
           key={index}
         >
           {mesh}
         </Float>
       ))}
       <ambientLight />
+      <Sparkles
+        position={[0, 0, camera.position.z - 1]}
+        size={1}
+        count={500}
+        speed={0}
+        noise={0.1}
+        scale={10}
+      />
     </a.group>
   );
 };

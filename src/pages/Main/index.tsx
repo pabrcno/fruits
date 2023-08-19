@@ -1,6 +1,7 @@
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
 import { useControls } from "leva";
+import { Sparkles, Stars, Stats } from "@react-three/drei";
 
 import { MainTitle, TitleContainer, TitleNote } from "./main.styles";
 
@@ -14,6 +15,7 @@ import {
 import { useState } from "react";
 
 import { ETheme, useTheme } from "../../hooks/useTheme";
+import { SpaceShip } from "../../components/SpaceShip";
 
 export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   const { theme, setToolsTheme, setFruitsTheme } = useTheme();
@@ -25,7 +27,7 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
     outerGradientColor,
     shadowColor,
   } = useControls({
-    bgMeshScale: 0.02,
+    bgMeshScale: 0.1,
     bgMeshFactor: 20,
     innerGradientColor: theme.innerGradientColor,
     outerGradientColor: theme.outerGradientColor,
@@ -33,7 +35,27 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
   });
 
   const [isTitleVisible, setIsTitleVisible] = useState(true);
+  const colors = [
+    "#B40000",
+    "#FCAC00",
+    "#00852B",
+    "#1E5AA8",
+    "#069D9F",
+    "#D05098",
+  ];
 
+  const textureUris = [
+    "/textures/Planet_Caves.jpg",
+    "/textures/Planet_City.jpg",
+    "/textures/Planet_Cliffs.jpg",
+    "/textures/Planet_Desert.jpg",
+    "/textures/Planet_Forest.jpg",
+    "/textures/Planet_Ice.jpg",
+    "/textures/Planet_Lava.jpg",
+    "/textures/Planet_Lava.jpg",
+    "/textures/Planet_Snow.jpg",
+    "/textures/Planet_TropicalValley.jpg",
+  ];
   return (
     <ScreenContainer>
       <Canvas
@@ -43,41 +65,26 @@ export const MainScreen = ({ goToStore }: { goToStore: () => void }) => {
           zIndex: 0,
         }}
       >
+        <Stats />
         <fog attach="fog" args={[shadowColor, 11, 12]} />
+        <directionalLight intensity={1} />
+        <SpaceShip />
+
         <Background
           meshes={theme.meshes.flatMap((Mesh, index) =>
             Array.from({ length: bgMeshFactor }, (_, factorIndex) => (
-              <Mesh key={`${index}-${factorIndex}`} scale={bgMeshScale} />
+              <Mesh
+                key={`${index}-${factorIndex}`}
+                scale={bgMeshScale}
+                color={colors[Math.floor(Math.random() * colors.length)]}
+                textureUri={
+                  textureUris[Math.floor(Math.random() * textureUris.length)]
+                }
+              />
             ))
           )}
         />
       </Canvas>
-      <Nav>
-        <div>
-          <NavItem
-            onClick={() => {
-              theme.name === ETheme.TOOLS ? setFruitsTheme() : setToolsTheme();
-            }}
-          >
-            Change Theme
-          </NavItem>
-        </div>
-        <a href="https://github.com/pabrcno/fruits">
-          <NavItem>
-            Repo
-            <img src="/github-icon.png" alt="gh-icon" height={25}></img>
-          </NavItem>
-        </a>
-      </Nav>
-      {isTitleVisible && (
-        <TitleContainer onDoubleClick={() => setIsTitleVisible(false)}>
-          <MainTitle>{theme.title}</MainTitle>
-          <TitleNote>(Double tap to hide)</TitleNote>
-        </TitleContainer>
-      )}
-      <ActionButtonContainer>
-        <ActionButton onClick={goToStore}>Store</ActionButton>
-      </ActionButtonContainer>
     </ScreenContainer>
   );
 };

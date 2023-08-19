@@ -1,10 +1,13 @@
 import { useState } from "react";
 import * as fruits from "../components/fruits";
 import * as tools from "../components/tools";
+import * as legos from "../components/legos";
+
 export enum ETheme {
   TOOLS = "tools",
   FRUITS = "fruits",
   DEFAULT = "default",
+  LEGOS = "legos",
 }
 
 type TTheme = {
@@ -18,11 +21,12 @@ type TTheme = {
 };
 
 const DEFAULT_THEME: TTheme = {
-  name: ETheme.DEFAULT,
+  name: ETheme.LEGOS,
   innerGradientColor: "#191716",
-  outerGradientColor: "#3D348B",
-  meshes: Object.values(fruits),
-  title: "Paulo's Fruit Store",
+  outerGradientColor: "#000",
+  // values of legos but twice to have more legos
+  meshes: Object.values(legos),
+  title: "",
   shadowColor: "#202020",
 };
 
@@ -32,11 +36,12 @@ export const useTheme = () => {
 
   const setToolsTheme = () => {
     setTheme({
-      name: ETheme.TOOLS,
+      name: ETheme.LEGOS,
       innerGradientColor: "#191716",
-      outerGradientColor: "#3D348B",
-      meshes: Object.values(tools),
-      title: "Paulo's Tool Store",
+      outerGradientColor: "#000",
+      // values of legos but twice to have more legos
+      meshes: Object.values(legos),
+      title: "",
       shadowColor: "#202020",
     });
   };
