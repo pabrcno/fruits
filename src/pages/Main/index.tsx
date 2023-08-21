@@ -1,18 +1,9 @@
 import { Background } from "../../components/Background";
 import { Canvas } from "@react-three/fiber";
-import { useControls } from "leva";
-import { Sparkles, Stars, Stats } from "@react-three/drei";
 
-import { MainTitle, TitleContainer, TitleNote } from "./main.styles";
+import { Stats } from "@react-three/drei";
 
-import {
-  ActionButton,
-  ActionButtonContainer,
-  Nav,
-  NavItem,
-  ScreenContainer,
-} from "../../styles/general.styles";
-import { useState } from "react";
+import { ScreenContainer } from "../../styles/general.styles";
 
 import { useTheme } from "../../hooks/useTheme";
 import { SpaceShip } from "../../components/SpaceShip";
@@ -29,7 +20,7 @@ export const MainScreen = () => {
     shadowColor,
   } = {
     bgMeshScale: 0.1,
-    bgMeshFactor: 20,
+    bgMeshFactor: 15,
     innerGradientColor: theme.innerGradientColor,
     outerGradientColor: theme.outerGradientColor,
     shadowColor: theme.shadowColor,

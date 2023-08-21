@@ -37,7 +37,7 @@ export function SpaceShip(): JSX.Element {
     setLasers((prevLasers) =>
       prevLasers.map((laser) => {
         const updatedLaser = laser.clone();
-        updatedLaser.z -= 0.1;
+        updatedLaser.z -= 0.5;
         return updatedLaser;
       })
     );
