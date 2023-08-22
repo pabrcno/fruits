@@ -20,10 +20,7 @@ type meshBackgroundProps = {
   deactivateScroll?: boolean;
 };
 
-export const Background = ({
-  meshes,
-  deactivateScroll,
-}: meshBackgroundProps) => {
+export const Background = ({ meshes }: meshBackgroundProps) => {
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
   const { speed, rotationIntensity, floatIntensity, mass, tension, friction } =
     {

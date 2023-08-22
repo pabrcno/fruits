@@ -71,6 +71,7 @@ export function SpaceShip(): JSX.Element {
         <Box
           scale={[0.01, 0.01, 0.1]}
           key={idx}
+          name="laser"
           position={laserPosition}
           material-color="red"
         />

@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    background-color: #fcc;
+    background-color: #000;
     overflow-x: hidden;
     overflow-y: hidden;
     font-family: 'Lobster', cursive;
