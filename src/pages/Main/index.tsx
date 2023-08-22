@@ -10,8 +10,6 @@ import { SpaceShip } from "../../components/SpaceShip";
 import { Planet } from "../../components/legos/Planet";
 import { Alien } from "../../components/legos/Alien";
 import { Suspense } from "react";
-import { Controls } from "../../components/Controls";
-import { ControlsContainer } from "./main.styles";
 
 export const MainScreen = () => {
   const { theme } = useTheme();

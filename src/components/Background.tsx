@@ -1,14 +1,10 @@
-import { ReactElement, useState } from "react";
-import { useSpring, a } from "@react-spring/three";
+import { ReactElement } from "react";
 import { useThree } from "@react-three/fiber";
 
 import { useMeshBackgroundPositioning } from "../hooks/useMeshBackgroundPositioning";
-import { useZScrolling } from "../hooks/useZScrolling";
 
 import { Float, Sparkles, Stars } from "@react-three/drei";
-import { useControls } from "leva";
 import { useAutoZScrolling } from "../hooks/useAutoZScroll";
-import { cameraPosition } from "three/examples/jsm/nodes/Nodes.js";
 
 type MeshProps = {
   scale: number;
