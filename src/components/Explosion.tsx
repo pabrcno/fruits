@@ -6,8 +6,6 @@ Source: https://sketchfab.com/3d-models/enhanced-action-explosion-effect-part-49
 Title: Enhanced Action Explosion Effect part
 */
 
-import * as THREE from "three";
-import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
 

@@ -63,6 +63,7 @@ export const useAutoZScrolling = (deactivateScroll?: boolean) => {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("keyup", onKeyUp);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setSpeed]);
 
   return { speed: speed.get() };

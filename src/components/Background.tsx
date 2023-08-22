@@ -18,15 +18,11 @@ type meshBackgroundProps = {
 
 export const Background = ({ meshes }: meshBackgroundProps) => {
   const positionedMeshes = useMeshBackgroundPositioning(meshes);
-  const { speed, rotationIntensity, floatIntensity, mass, tension, friction } =
-    {
-      speed: 0.5,
-      rotationIntensity: 2,
-      floatIntensity: 1,
-      mass: 1,
-      tension: 300,
-      friction: 240,
-    };
+  const { speed, rotationIntensity, floatIntensity } = {
+    speed: 0.5,
+    rotationIntensity: 2,
+    floatIntensity: 1,
+  };
   const { speed: scrollSpeed } = useAutoZScrolling();
 
   const { camera } = useThree();

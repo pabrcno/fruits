@@ -62,6 +62,7 @@ export function SpaceShip(): JSX.Element {
     return () => {
       window.removeEventListener("keydown", onKeyDown);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
