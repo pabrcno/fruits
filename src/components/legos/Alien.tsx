@@ -27,9 +27,12 @@ export function Alien(props: JSX.IntrinsicElements["group"]) {
       <group>
         <mesh
           geometry={nodes.Object_1.geometry}
+          material={materials.DarkMetal}
+        />
+        <mesh
+          geometry={nodes.Object_1_1.geometry}
           material={materials.LightMEtal}
         />
-        <mesh geometry={nodes.Object_1_1.geometry} />
         <mesh geometry={nodes.Object_1_2.geometry} material={materials.Glass} />
       </group>
     </group>
