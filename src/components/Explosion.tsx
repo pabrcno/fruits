@@ -32,7 +32,7 @@ export function Explosion(props: JSX.IntrinsicElements["group"]) {
         geometry={nodes.Object_2.geometry}
         material={materials["Scene_-_Root"]}
         rotation={[-Math.PI / 2, 0, 0]}
-        material-opacity={0.1}
+        position={[0, 1, 0]}
       />
     </group>
   );

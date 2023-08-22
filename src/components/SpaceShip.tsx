@@ -46,7 +46,7 @@ export function SpaceShip(): JSX.Element {
   // Cleanup lasers that are out of view after updating their positions.
   useEffect(() => {
     setLasers((prevLasers) =>
-      prevLasers.filter((laser) => laser.z > camera.position.z - 12)
+      prevLasers.filter((laser) => laser.z > camera.position.z - 5)
     );
   }, [camera.position.z, lasers]);
 
